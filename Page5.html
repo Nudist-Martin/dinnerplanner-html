@@ -1,82 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD:Page5.html
-<html lang="en">
 <head>
-  <link rel="stylesheet" type="text/css" href="/CSS/Stylesheet.css">  
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+  <title>Dinner Planner Deluxe</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <div class="row">
-        <div class="col-sm-12"><div style="font-size: 50px; background-color: lightblue">Dinner planner</div> </div>
-=======
-<html lang="en">
-<head>
-  <link rel="stylesheet" type="text/css" href="/CSS/Stylesheet.css">  
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
-</head>
-<body>
-    <div class="row">
-        <div class="col-sm-12"><div style="font-size: 50px; background-color: lightblue">Dinner planner</div> </div>
->>>>>>> e6c2c21b0c79e212fe7faca770e7c1356bcba237:Page5.html
-    </div>
-    <div class="row">
-        <div class="col-sm-6">
-            <div style="font-size: 20px; text-align: left">My dinner: 3 people</div>
-        </div>
-        <div class="col-sm-6">
-            <div style="font-size: 20px; text-align: right">
-                <ourbutton><button style="background-color: orange; box-shadow: 20" type="button">Go back!</button></ourbutton>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-1"> </div>
-        <div class="col-sm-10">
-            <div class="row">
-                <div class="column">
-                    <div style="display: inline-block" class="container">
-                        <img src="images/bakedbrie.jpg" alt="Snow">
-                        <span class="caption">3444SEK.</span>
-                    </div>
-                </div>
-                <div class="column">
-                    <div style="display: inline-block" class="container">
-                        <img src="images/meatballs.jpg" alt="Snow">
-                        <span class="caption">3444SEK.</span>
-                    </div>
-                </div>
-                <div class="column">
-                    <div style="display: inline-block" class="container">
-                        <img src="images/icecream.jpg" alt="Snow">
-                        <span class="caption">3444SEK.</span>
-                    </div>
-                </div>
-                <div style="border-left-style: dashed; text-align: end" class="column">
-                    <div style="display: inline-block" class="container">
-                        TOTAL: 1 031 SEK
-                    </div>
-                </div>
-            </div>
-            </div>
-        </div>
-    <div class="col-sm-1"> </div>
 
-    <div class="row">
-        <div class="col-sm-12"><ourbutton><button style="background-color: orange; box-shadow: 20" type="button">Print full receipt</button></ourbutton></div>
-    </div>
-</body>
-</html>
+  <header class="jumbotron text-center container-fluid" style="margin-bottom:0">
+    <h1>Dinner Planner</h1>
+  </header>
 
-    <!-- jQuery, only for use by Bootstrap -->
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+  <div class="container-fluid col-sm-12 border border-dark" style="margin-top:0px">
+    <h2 style="text-align: left">My Dinner: 5 people<h2>
+    <div style="text-align: right">
+      <button type="submit" class="btn btn-primary">Back to Edit</button>
+    </div>
+  </div>
+  <div class="col-sm-9 border-right border-bottom border-dark">
+    <div>
+      <img src="images/skaldjur.jpg" class="img-responsive" style="width: 50%; height: 80%">
+    <!--Här ska det komma bilder och respektive kostnad-->
+  </div>
+  </div>
+  <div class="container-fluid col-sm-3 border-bottom border-dark">
+    <div class="row">
+      <p>Total Cost:</p>
+    </div>
+    <div class="row">
+      <div id=#totalCost>
+        <!--Här ska totala kostnaden in-->
+        SEK
+      </div>
+    </div>
+  </div>
+  <footer class="container-fluid col-sm-12 text-center">
+    <button type="submit" class="btn btn-primary btn-lg" style="margin-top: 40px">Print Full Recipe</button>
+  </footer>
+  <!-- jQuery, only for use by Bootstrap -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 
 	<!-- The application JavaScript code -->
 	<script src="js/app.js"></script>
 	<script src="js/model/dinnerModel.js"></script>
-	<script src="js/view/exampleView.js"></script>
+	<script src="js/view/mealsView.js"></script>
+  <script src="js/view/welcomeView.js"></script>
+  <script src="js/view/Sidebarview.js"></script>
 	<!-- TODO: Here you should include JS code for your other views -->
-  </body>
+</body>
 </html>

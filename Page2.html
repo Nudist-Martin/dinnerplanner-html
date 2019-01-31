@@ -1,145 +1,101 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="CSS/Stylesheet.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+  <title>Dinner Planner Deluxe</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 </head>
 <body>
+
+  <header class="jumbotron text-center container-fluid" style="margin-bottom:0">
+    <h1>Dinner Planner</h1>
+  </header>
+
+  <div class="container-fluid border border-dark" style="margin-top:0px" id="Sidebar">
     <div class="row">
-        <div id="Head" class="col-sm-12"><div>Dinner planner</div></div>
-    </div>
-    <div class="col-sm-3 bg-light border" id="sidebarView">
-					<div class = "row">
-						<div class ="col">
-							<nav class="navbar navbar-expand-lg flex-column navbar-light">
-								<a class="navbar-brand">Your lovely dinner</a>
-								<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapseOnMobile" aria-controls="collapseOnMobile" aria-expanded="false" aria-label="Toggle navigation">
-									<span class="navbar-toggler-icon"></span>
-								</button>
-								<div class="collapse navbar-collapse row" id="collapseOnMobile">
-										<div class ="col">
-											<p>Guests: boi</p>
-										</div>
-									<div class = "col">
-										<div type="text" class="form-control" placeholder="Select Guests" id="noGuest">
-											<p></p>
-										</div>
-									</div>
-									<div class = "col">
-                    <!--Kan Sten få knappjävlarna att sitta snyggt?-->
-										<div class="btn-group-vertical" id="upDownButtons">
-											<button><i class="fas fa-angle-up" id="upButton"></i></button>
-											<button><i class="fas fa-angle-down" id="downButton"></i></button>
-										</div>
-									</div>
-								</div>
-							</nav>
-						</div>
-					</div>
-						<div class = "row bg-secondary">
-								<div class = "col">
-									<p>Dish name</p>
-								</div>
-								<div class = "col">
-									<p class = "text-right">Cost</p>
-								</div>
-						</div>
-						<div class = "row">
-							<div class = "col-sm" id= "sidebarList">
-							</div>
-						</div>
-						<div class = "row">
-							<div class = "col-sm d-flex justify-content-end">
-								<div id="totSum"> </div>
-							</div>
-						</div>
-						<div class = "row">
-							<div class = "col-sm d-flex justify-content-center">
-								<button type="submit" class="btn btn-primary" id="confirmOrder">Confirm Order</button>
-							</div>
-						</div>
+      <div class="col-sm-3 vh-100 bg-light border">
+        <h3 class="text-center">Your Dinner</h3>
+				<div class="col">
+				  <p>Guests</p>
 				</div>
-        </div>
-        <div class="col-sm-9 xs">
-            <div style=" border: solid" class="row">
-                <div>Find a dish</div>
-                <div style="display: inline"> </div> <select>
-                    <option value="All">All</option>
-                    <option value="Main Coures">Main Coures</option>
-                    <option value="Side Dish">Side Dish</option>
-                    <option value="Dessert">Dessert</option>
-                    <option value="Appetizer">Appetizer</option>
-                </select>
-                <ourbutton><button style="background-color: orange; box-shadow: 20" type="button">Search</button></ourbutton>
-            </div>
-            <div id="meals" class="col-sm-9" class="col-xs-12" >
-
-=======
-<html lang="en">
-<head>
-    <link rel="stylesheet" type="text/css" href="CSS/Stylesheet.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
-</head>
-<body>
-    <div class="row">
-        <div id="Head" class="col-sm-12"><div>Dinner planner</div></div>
+				<div class="col">
+			    <div type="text" class="form-control" placeholder="Select Guests" id="noGuest">
+              <!--Här ska det in en siffra-->
+					  <p></p>
+					</div>
+				</div>
+				<div class="col">
+					 <div class="btn-group-horizontal" id="ourButtons">
+					   <button type="button" class="btn-deafult" id="buttonUp">+</button>
+						 <button type="button" class="btn-deafult" id="buttonUp">-</button>
+					 </div>
+				</div>
+	    <div class="row border bg-secondary" style="margin-top:10px; margin-bottom:10px">
+	      <div class="col">
+		      <p>Dish name</p>
+		    </div>
+		    <div class="col">
+		      <p class="text-right">Cost</p>
+		    </div>
+      </div>
+      <div class="row">
+	      <div class="col-sm" id= "sidebarList">
+		    </div>
+	    </div>
+	    <div class="row">
+	      <div class="col-sm d-flex justify-content-end">
+		      <div id="totSum"> 0.0 SEK </div>
+		    </div>
+	    </div>
+	    <div class="row">
+	      <div class="col-sm d-flex justify-content-center">
+		      <button type="submit" class="btn btn-primary" id="confirmOrder">Confirm Order</button>
+		    </div>
+	    </div>
     </div>
-    <div class="row">
-        <div style=" border: solid"class="col-sm-3">
-            <header>My Dinner</header>
-            <div id="Sidebarview" style="display: inline">People: <span id="numberOfGuests"> </span>
-             <select>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-            </select>
-                <div>
-                    <div style="display: inline; text-align: left;">
-                        Dish Name
-                    </div>
-                    <div style="display: inline; text-align: right;">
-                        Cost
-                    </div>
-                </div>
 
-                    <p id="TotalPrice" style="display: inline; text-align: right;"></p>
-                    <div class="col-sm-12"><ourbutton><button style="background-color: orange; box-shadow: 20" type="button">Confirm Purchase</button></ourbutton></div>
-                    </div>
+    <div class="col-sm-9 vh-100 border-left border-dark" id="mealView">
+      <h4>Find a dish</h4>
+      <div class="row">
+        <div class="col-sm-9">
+          <input type="text" class="form-control my-2" id="keyWords" placeholder="Enter key words">
         </div>
-        <div class="col-sm-9 xs">
-            <div style=" border: solid" class="row">
-                <div>Find a dish</div>
-                <div style="display: inline"> </div> <select>
-                    <option value="All">All</option>
-                    <option value="Main Coures">Main Coures</option>
-                    <option value="Side Dish">Side Dish</option>
-                    <option value="Dessert">Dessert</option>
-                    <option value="Appetizer">Appetizer</option>
-                </select>
-                <ourbutton><button style="background-color: orange; box-shadow: 20" type="button">Search</button></ourbutton>
-            </div>
-            <div id="meals" class="col-sm-9" class="col-xs-12" >
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Choose Type
+            <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a href="#">Appetizer</a></li>
+                <li><a href="#">Main Course</a></li>
+                <li><a href="#">Dessert</a></li>
+                <li><a href="#">Side Dish</a></li>
+              </ul>
+        </div>
+        <div style="margin-left:10px";><button type="submit" class="btn btn-primary" id="confirmOrder">Search</button>
+        </div>
+      </div>
+      <div class="row border-top border-dark">
+        <!--Här trycker vi in maten från mealViews-->
+      </div>
+      </div>
+  </div>
+</div>
 
->>>>>>> e6c2c21b0c79e212fe7faca770e7c1356bcba237
-            </div>
-
-    <!-- jQuery, only for use by Bootstrap -->
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+  <!-- jQuery, only for use by Bootstrap -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 
 	<!-- The application JavaScript code -->
 	<script src="js/app.js"></script>
 	<script src="js/model/dinnerModel.js"></script>
 	<script src="js/view/mealsView.js"></script>
-    <script src="js/view/welcomeView.js"></script>
-    <script src="js/view/Sidebarview.js"></script>
+  <script src="js/view/welcomeView.js"></script>
+  <script src="js/view/Sidebarview.js"></script>
 	<!-- TODO: Here you should include JS code for your other views -->
-  </body>
+</body>
 </html>
