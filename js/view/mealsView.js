@@ -21,24 +21,42 @@ class MealsView {
   constructor (container, model){
     this.container = container;
     this.model = model;
+
   }
 
+    addMealTypes(){
 
-addMealButtons(){
-    var menu = this.model.getFullMenu()
-    for (var idx in menu){
-        console.log(menu[idx]['name'])
-        var newCont = document.createElement("DIV")
-        var newButt = document.createElement("BUTTON")
-        var newImg = document.createElement("img")
-        newCont.className = "container"
-        newButt.className = "btn"
-        newImg.src = "images/" + String(menu[idx]['image'])
-        newImg.alt = String(menu[idx]['name'])
-        newButt.innerHTML = String(menu[idx]['name'])
-        newCont.appendChild(newImg)
-        newCont.appendChild(newButt)
-        this.container.appendChild(newCont)
+        var cont = this.container.childNodes[0].childNodes[2]
+
+        console.log()
+        var menu = this.model.getFullMenu()
+        var types = []
+        for (var idx in menu){
+             types.push(menu[idx]['type'])}
+        var t = new Set(types)
+        for (var idx in t){
+            var newCat = document.createElement("option")
+            newCat.innerHTML = String(t[idx])
+            cont.appendChild(newCat)
+
+        }
+    }
+
+
+    addMealButtons(){
+        var menu = this.model.getFullMenu()
+        for (var idx in menu){
+            var newCont = document.createElement("DIV")
+            var newButt = document.createElement("BUTTON")
+            var newImg = document.createElement("img")
+            newCont.className = "container"
+            newButt.className = "btn"
+            newImg.src = "images/" + String(menu[idx]['image'])
+            newImg.alt = String(menu[idx]['name'])
+            newButt.innerHTML = String(menu[idx]['name'])
+            newCont.appendChild(newImg)
+            newCont.appendChild(newButt)
+            this.container.appendChild(newCont)
     }
 }
 }
