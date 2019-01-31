@@ -24,6 +24,7 @@ function selectOptionsCreate() {
   elMainSelect.appendChild(frag);
 }
 =======
+<<<<<<< HEAD
 class People {
   constructor (container, model){
     var guests = container.find("#numberOfGuests");
@@ -37,4 +38,19 @@ class Price {
     price.html(model.getTotalMenuPrice());
   }
 }
+=======
+class People {
+  constructor (container, model){
+    var guests = container.find("#numberOfGuests");
+    guests.html(model.getGuestNum());
+  }
+}
+class Price {
+  constructor (container, model){
+  //  alert(model.getTotalMenuPrice());
+    var price = container.find("#TotalPrice");
+    price.html(model.getTotalMenuPrice());
+  }
+}
+>>>>>>> fce92bb2f6e1573442ce2101810ef5753adf1153
 >>>>>>> e6c2c21b0c79e212fe7faca770e7c1356bcba237
