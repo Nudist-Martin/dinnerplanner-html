@@ -15,14 +15,13 @@ window.onload= function() {
     if (page == "Page1.html"){
         const welcomeView = new WelcomeView(document.querySelector("#welcome"), model);
     } else if (page == "Page2.html") { 
-	    const mealsView = new MealsView(document.querySelector("#dishView"), model);
-        mealsView.addMealTypes();
+	    const mealsView = new MealsView(document.querySelector("#meals"), model);
         mealsView.addMealButtons();
     } else if (page == "Page3.html") { 
         const mealsView = new MealsView(document.querySelector("#meals"), model);
         mealsView.addMealButtons();
     } else if (page == "Page4.html") { 
-        const mealsView =   new MealsView(document.querySelector("#meals"), model);
+        const mealsView = new MealsView(document.querySelector("#meals"), model);
         mealsView.addMealButtons();
     } else if (page == "Page5.html") { 
         const mealsView = new MealsView(document.querySelector("#meals"), model);

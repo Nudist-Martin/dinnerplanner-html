@@ -1,64 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<html lang="en">
 <head>
-  <link rel="stylesheet" type="text/css" href="/CSS/Stylesheet.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+  <title>Dinner Planner Deluxe</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <div class="row">
-        <div class="col-sm-12"><div style="font-size: 50px; background-color: lightblue">Dinner planner</div> </div>
+
+  <header class="jumbotron text-center container-fluid" style="margin-bottom:0">
+    <h1>Dinner Planner</h1>
+  </header>
+
+  <div class="container-fluid col-sm-12 border border-dark" style="margin-top:0px">
+    <h2 style="text-align: left">My Dinner: 5 people<h2>
+    <div style="text-align: right">
+      <button type="submit" class="btn btn-primary">Back to Edit</button>
     </div>
-    <div class="row">
-        <div class="col-sm-6">
-            <div style="font-size: 20px; text-align: left">My dinner: 3 people</div>
-        </div>
-        <div class="col-sm-6">
-            <div style="font-size: 20px; text-align: right">
-                <ourbutton><button style="background-color: orange; box-shadow: 20" type="button">Go back!</button></ourbutton>
-            </div>
-        </div>
-    </div>
+  </div>
+  <div class="row"
+  <div class="container-fluid col-sm-6 border-right border-dark">
+    <!--Här ska det in en massa bilder och beskrivningar-->
+  </div>
+  <div class="container-fluid col-sm-6">
+    <!--Här ska det in en massa förberedelsebeskrivningar till HÖGER om den övre-->
+  </div>
+</div>
 
-    <div style="border: solid">
-        <div class="row">
-            <div class="col-sm-6">
-                <img src="images/toast.jpg" />
-                <span style="align-items:baseline" class="caption">Toast is burnt bread.</span>
-            </div>
-            <div class="col-sm-6">
-                <div style="font-size: 20px; text-align: right">
-                    Put it in the toaster. Toast it
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6">
-                <img src="images/icecream.jpg" />
-                <span class="caption">Icecream is a nice cream, that's iced.</span>
-            </div>
-            <div class="col-sm-6">
-                <div style="font-size: 20px; text-align: right">
-                    Icecream is made by icing cream. Ice it.
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-</body>
-</html>
-
-    <!-- jQuery, only for use by Bootstrap -->
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+  <!-- jQuery, only for use by Bootstrap -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 
 	<!-- The application JavaScript code -->
 	<script src="js/app.js"></script>
 	<script src="js/model/dinnerModel.js"></script>
-	<script src="js/view/exampleView.js"></script>
-	<!-- TODO: Here you should include JS code for your other views -->
-  </body>
+	<script src="js/view/mealsView.js"></script>
+  <script src="js/view/welcomeView.js"></script>
+  <script src="js/view/Sidebarview.js"></script>
+</body>
 </html>
