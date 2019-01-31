@@ -4,24 +4,26 @@
     <link rel="stylesheet" type="text/css" href="CSS/Stylesheet.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
 </head>
+
 <body>
     <div class="row">
         <div id="Head" class="col-sm-12"><div>Dinner planner</div></div>
     </div>
     <div class="row">
-        <div style=" border: solid"class="col-sm-3">
+        <div style=" border: solid" class="col-sm-3">
             <header>My Dinner</header>
-            <div id="Sidebarview" style="display: inline">People: <span id="numberOfGuests"> </span>
-             <select>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-            </select>
+            <div id="Sidebarview" style="display: inline">
+                People: <span id="numberOfGuests"> </span>
+                        <select id="rullmenyn">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                        </select>
                 <div>
                     <div style="display: inline; text-align: left;">
                         Dish Name
@@ -31,14 +33,15 @@
                     </div>
                 </div>
 
-                    <p id="TotalPrice" style="display: inline; text-align: right;"></p>
-                    <div class="col-sm-12"><ourbutton><button style="background-color: orange; box-shadow: 20" type="button">Confirm Purchase</button></ourbutton></div>
-                    </div>
+                <p id="TotalPrice" style="display: inline; text-align: right;"></p>
+                <div class="col-sm-12"><ourbutton><button style="background-color: orange; box-shadow: 20" type="button">Confirm Purchase</button></ourbutton></div>
+            </div>
         </div>
-        <div class="col-sm-9 xs">
+        <div class="col-sm-9 xs" id="dishView">
             <div style=" border: solid" class="row">
                 <div>Find a dish</div>
-                <div style="display: inline"> </div> <select>
+                <div style="display: inline"> </div>
+                <select id="dishTypes">
                     <option value="All">All</option>
                     <option value="Main Coures">Main Coures</option>
                     <option value="Side Dish">Side Dish</option>
@@ -47,21 +50,22 @@
                 </select>
                 <ourbutton><button style="background-color: orange; box-shadow: 20" type="button">Search</button></ourbutton>
             </div>
-            <div id="meals" class="col-sm-9" class="col-xs-12" >
+            <div id="meals" class="col-sm-9" class="col-xs-12">
 
             </div>
+        </div>
 
-    <!-- jQuery, only for use by Bootstrap -->
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+        <!-- jQuery, only for use by Bootstrap -->
+        <script src="https://code.jquery.com/jquery.js"></script>
+        <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+        <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 
-	<!-- The application JavaScript code -->
-	<script src="js/app.js"></script>
-	<script src="js/model/dinnerModel.js"></script>
-	<script src="js/view/mealsView.js"></script>
-    <script src="js/view/welcomeView.js"></script>
-    <script src="js/view/Sidebarview.js"></script>
-	<!-- TODO: Here you should include JS code for your other views -->
-  </body>
+        <!-- The application JavaScript code -->
+        <script src="js/app.js"></script>
+        <script src="js/model/dinnerModel.js"></script>
+        <script src="js/view/mealsView.js"></script>
+        <script src="js/view/welcomeView.js"></script>
+        <script src="js/view/Sidebarview.js"></script>
+        <!-- TODO: Here you should include JS code for your other views -->
+</body>
 </html>
