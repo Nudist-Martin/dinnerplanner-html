@@ -29,12 +29,12 @@
 					</div>
 				</div>
 				<div class="col">
-					 <div class="btn-group-horizontal" id="ourButtons">
+					 <div class="btn-group-horizontal" style="margin-top:10px; margin-bottom:10px" id="ourButtons">
 					   <button type="button" class="btn-deafult" id="buttonUp">+</button>
 						 <button type="button" class="btn-deafult" id="buttonDown">-</button>
 					 </div>
 				</div>
-	    <div class="row border bg-secondary" style="margin-top:10px; margin-bottom:10px">
+	    <div class="row border bg-secondary" style="margin-top:10px">
 	      <div class="col">
 		      <p>Dish name</p>
 		    </div>
@@ -42,7 +42,7 @@
 		      <p class="text-right">Cost</p>
 		    </div>
       </div>
-      <div class="row border bg-secondary" style="margin-top:10px; margin-bottom:10px">
+      <div class="row border bg-secondary">
 	      <div class="col">
 		      <p>Skaldjursplatå</p>
 		    </div>
@@ -52,7 +52,7 @@
       </div>
 	    <div class="row">
 	      <div class="col-sm d-flex justify-content-end">
-		      <div id="totSum"> 0.0 SEK </div>
+		      <div id="totSum"></div>&nbspSEK
 		    </div>
 	    </div>
 	    <div class="row">
@@ -68,7 +68,7 @@
         <div class="col-sm-9">
           <input type="text" class="form-control my-2" id="keyWords" placeholder="Enter key words">
         </div>
-        <div class="dropdown">
+        <div class="dropdown"> <!-- Ska det vara ett ID här någonstans? -->
           <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Choose Type
             <span class="caret"></span>
               </button>
@@ -79,39 +79,11 @@
                 <li><a href="#">Side Dish</a></li>
               </ul>
         </div>
-        <div style="margin-left:10px";><button type="submit" class="btn btn-primary">Search</button>
+        <div style="margin-left:10px";><button type="submit" class="btn btn-primary" id="p4search">Search</button>
         </div>
       </div>
-      <div class="row border-top border-dark">
-        <div class="col-md-4" style="margin-left: 20px">
-          <div class="thumbnail border border-light">
-            <a href="images/sourdough.jpg">
-              <img src="images/sourdough.jpg" alt="sourdough" style="width:100%">
-              <div class="caption">
-                <p>This is a jar</p>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="thumbnail border border-light">
-            <a href="images/bakedbrie.jpg">
-              <img src="images/bakedbrie.jpg" alt="bakedBrie" style="width:100%">
-              <div class="caption">
-                <p>cheezy</p>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="thumbnail border border-light">
-            <a href="images/toast.jpg">
-              <img src="images/toast.jpg" alt="toast" style="width:100%">
-              <div class="caption">
-                <p>fattig riddare</p>
-              </div>
-            </a>
-          </div>
+      <div class="row border-top border-dark"id="availableDishes">
+        <div id="fras" style="text-align:center; margin:10px;">
         </div>
       </div>
     </div>

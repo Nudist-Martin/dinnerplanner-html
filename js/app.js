@@ -1,40 +1,27 @@
 window.onload= function() {
-	//We instantiate our model
-	var model = new DinnerModel();
-	model.setGuestNum(5);
 
-    var path = window.location.pathname;
-    var page = path.split("/").pop();
-    console.log(page)
-	//var guestNum = new People($("#Sidebarview"), model);
+var model = new DinnerModel();
+model.setCustomerMenu(1);
+model.setCustomerMenu(101);
+model.setCustomerMenu(2);
 
-	//var price = new Price($("#Sidebarview"), model);
+let dishToggle = new AddMealButtons($("#availableDishes"), model);
+let showSidebar = new Display($("#sidebar"), model);
+let guestChange = new People($("#sidebar"), model);
+let priceChange = new Price($("#sidebar"), model);
+let dishDescr = new Disp($("#dishDescription"), model);
+let ingredientDescr = new Ingr($("#losIngredientos"), model);
+let sumChange = new FinPrice($("#orderContainer"), model);
+let finMeals = new SelectedMeals($("#sho"), model);
 
-	// And create the instance of ExampleView
-	//const exampleView = new ExampleView(document.querySelector("#exampleView"));
-    if (page == "Page1.html"){
-        const welcomeView = new WelcomeView(document.querySelector("#welcome"), model);
-    } else if (page == "Page2.html") { 
-	    const mealsView = new MealsView(document.querySelector("#meals"), model);
-        mealsView.addMealButtons();
-    } else if (page == "Page3.html") { 
-        const mealsView = new MealsView(document.querySelector("#meals"), model);
-        mealsView.addMealButtons();
-    } else if (page == "Page4.html") { 
-        const mealsView = new MealsView(document.querySelector("#meals"), model);
-        mealsView.addMealButtons();
-    } else if (page == "Page5.html") { 
-        const mealsView = new MealsView(document.querySelector("#meals"), model);
-        mealsView.addMealButtons();
-    } else if (page == "Page6.html") { 
-        const mealsView = new MealsView(document.querySelector("#meals"), model);
-        mealsView.addMealButtons();
-    }
+var GuestNumController = function(view, model) {
+  view.plusButton.click(function(){
+     model.setGuestNum(1);
+  });
 
-	/**
-	 * IMPORTANT: app.js is the only place where you are allowed to
-	 * query for elements in the whole document.
-	 * In other places you should limit the search only to the children
-	 * of the specific view you're working with (see exampleView.js).
-	 */
+ view.minusButton.click(function(){
+     model.setGuestNum(-1);
+ });
+}
+GuestNumController(guestChange, model);
 };

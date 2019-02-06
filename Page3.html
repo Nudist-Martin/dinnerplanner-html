@@ -15,95 +15,19 @@
     <h1>Dinner Planner</h1>
   </header>
 
-  <div class="container-fluid border border-dark" style="margin-top:0px" id="Sidebar">
+  <div class="container-fluid border border-dark" style="margin-top:0px">
     <div class="row">
-      <div class="col-sm-3 vh-100 bg-light border">
-        <h3 class="text-center">Your Dinner</h3>
-				<div class="col">
-				  <p>Guests</p>
-				</div>
-				<div class="col">
-			    <div type="text" class="form-control" placeholder="Select Guests" id="guestNum">
-              <!--Här ska det in en siffra-->
-					  <p>3</p>
-					</div>
-				</div>
-				<div class="col">
-					 <div class="btn-group-horizontal" id="ourButtons">
-					   <button type="button" class="btn-deafult" id="buttonUp">+</button>
-						 <button type="button" class="btn-deafult" id="buttonDown">-</button>
-					 </div>
-				</div>
-	      <div class="row border bg-secondary" style="margin-top:10px; margin-bottom:10px">
-	        <div class="col">
-		        <p>Dish name</p>
-		      </div>
-		      <div class="col">
-		        <p class="text-right">Cost</p>
-		      </div>
-        </div>
-        <div class="row">
-	        <div class="col-sm" id= "sidebarList">
-		      </div>
-	      </div>
-	      <div class="row">
-	        <div class="col-sm d-flex justify-content-end">
-		        <div id="totSum"> 0.0 SEK
-            </div>
-		      </div>
-	      </div>
-	      <div class="row">
-	        <div class="col-sm d-flex justify-content-center">
-		        <button type="submit" class="btn btn-primary" id="confirmOrder">Confirm Order</button>
-		      </div>
-	      </div>
+      <div class="col-sm-3 vh-100 bg-light border" id=sidebar>
       </div>
+
       <div class="col-sm-9 vh-100 border-left border-dark" id="dishView">
-
         <div class="row">
-          <div class="col-sm-6">
-            <h2>Skaldjursplatå</h2>
-            <div>
-              <div class="row">
-                <div class="col-sm-9">
-                  <img src="images/skaldjur.jpg" class="img-responsive" style="width: 50%; height: 80%">
-                </div>
-              </div>
-              <div class="row">
-                <p style="margin-left: 20px">Åh, kolla vad rik jag är!<p>
-              </div>
-              <div>
-                <button type="submit" class="btn btn-primary">Back to search</button>
-              </div>
-              <div>
-                <h1>Preparations</h1>
-                  Såhär lagar man god mat!
-              </div>
-            </div>
-          </div>
+          <div class="col-sm-6" id="dishDescription">
 
-        <!--Få den här skiten att ligga till höger och fyll den med junk-->
-          <div class="col-sm-6 border bg-warning">
-				    <div class="container-fluid">
-					    <div class="row">
-						    <div class="col" id="ingredientHead">
-                  <p>Ingredients for 3 people</p>
-							  </div>
-						  </div>
-						  <div class="row border border-dark">
-						    <div class="col" id="dishIngredients">
-                  <p>Here is a list of ingredients</p>
-							  </div>
-						  </div>
-						  <div class="row">
-						    <div class="col"><button class="btn btn-primary">Add to menu</button>
-                </div>
-							    <div class="col" id = "dishPrice">
-                  </div>
-							</div>
-					  </div>
+          </div>
+          <div class="col-sm-6 border bg-warning" id="losIngredientos">
+
 				  </div>
-        </div>
       </div>
     </div>
 
@@ -112,10 +36,13 @@
   <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
   <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 	<!-- The application JavaScript code -->
-	<script src="js/app.js"></script>
-	<script src="js/model/dinnerModel.js"></script>
-	<script src="js/view/mealsView.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/model/dinnerModel.js"></script>
+  <script src="js/view/mealsView.js"></script>
   <script src="js/view/welcomeView.js"></script>
   <script src="js/view/Sidebarview.js"></script>
+  <script src="js/view/dishDescriptionView.js"></script>
+  <script src="js/view/finalOrderView.js"></script>
+
 </body>
 </html>

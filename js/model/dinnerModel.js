@@ -3,10 +3,11 @@ var DinnerModel = function() {
 	// and selected dishes for the dinner menu
 	var guestNum = 1;
 	var totalPrice = 40;
+	var customerMenu = [];
 	var dishMenu = [{
 
 		'id':1,
-		'name':'Frenched toast',
+		'name':'French toast',
 		'type':'starter',
 		'image':'toast.jpg',
 		'description':"Not even French...",
@@ -46,7 +47,7 @@ var DinnerModel = function() {
 		},{
 
 		'id':2,
-		'name':'Sourdough Starter',
+		'name':'Jar with dough' ,
 		'type':'starter',
 		'image':'sourdough.jpg',
 		'description':"Who even likes sourdough? Why can't it be happy?",
@@ -75,7 +76,7 @@ var DinnerModel = function() {
 		},{
 
 		'id':3,
-		'name':'Baked Brie with Peaches',
+		'name':'Baked Brie',
 		'type':'starter',
 		'image':'bakedbrie.jpg',
 		'description':"Brie... oh how I despise thee",
@@ -103,7 +104,7 @@ var DinnerModel = function() {
 		},{
 
 		'id':100,
-		'name':'Meat balls',
+		'name':'Meatballs',
 		'type':'main dish',
 		'image':'meatballs.jpg',
 		'description':"As the name suggests, it's not suitable for vegans in the slightest.",
@@ -179,7 +180,7 @@ var DinnerModel = function() {
 		},{
 
 		'id':101,
-		'name':'MD 2',
+		'name':'Delikat mat',
 		'type':'main dish',
 		'image':'bakedbrie.jpg',
 		'description':"Come on, it's just Brie again but even worse!",
@@ -207,9 +208,9 @@ var DinnerModel = function() {
 		},{
 
 		'id':102,
-		'name':'MD 3',
+		'name':'Skaldjursplatå',
 		'type':'main dish',
-		'image':'meatballs.jpg',
+		'image':'skaldjur.jpg',
 		'description':"You sacrifice your firstborn child to Knack.",
 
 		'ingredients':[{
@@ -235,7 +236,7 @@ var DinnerModel = function() {
 		},{
 
 		'id':103,
-		'name':'MD 4',
+		'name':'Tasty Dish',
 		'type':'main dish',
 		'image':'meatballs.jpg',
 		'description':"Look at a mirror and think about hot bois.",
@@ -263,7 +264,7 @@ var DinnerModel = function() {
 		},{
 
 		'id':200,
-		'name':'Chocolat Ice cream',
+		'name':'Good Ice cream',
 		'type':'dessert',
 		'image':'icecream.jpg',
 		'description':"Find a snowman and make him teach you the secret of nice-cream.",
@@ -279,7 +280,7 @@ var DinnerModel = function() {
 		},{
 
 		'id':201,
-		'name':'Vanilla Ice cream',
+		'name':'Cool Ice cream',
 		'type':'dessert',
 		'image':'icecream.jpg',
 		'description':"Be bad at sex, the rest comes naturally.",
@@ -295,7 +296,7 @@ var DinnerModel = function() {
 		},{
 
 		'id':202,
-		'name':'Strawberry',
+		'name':'Tasty Ice cream',
 		'type':'dessert',
 		'image':'icecream.jpg',
 		'description':"Listen to De Vet Du and imagine yourself as a gay boi.",
@@ -309,8 +310,22 @@ var DinnerModel = function() {
 			}]
 		}];
 
+	    var observers=[];
+	    this.addObserver = function(observer){
+				observers.push(observer);
+			}
+
+	    var notifyObservers = function(changeDetails){
+	        for(var i=0; i < observers.length; i++)
+	             observers[i](changeDetails);
+						 }
+
 	this.setGuestNum = function(num) {
 		guestNum += num;
+		if (guestNum < 1) {
+			guestNum = 1;
+		}
+		notifyObservers("setGuestNum");
 	}
 
 	this.getGuestNum = function() {
@@ -320,10 +335,24 @@ var DinnerModel = function() {
 	this.getSelectedDish = function(type) {
 		return dishMenu.find(x => x.type === type);
 	}
+
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
 		return dishMenu;
 	}
+
+	this.setCustomerMenu = function(id){
+		for (dish in dishMenu){
+			if (dishMenu[dish].id === id){
+				customerMenu.push(dishMenu[dish]);
+			}
+		}
+	}
+
+	this.getCustomerMenu = function(){
+		return customerMenu;
+	}
+
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
 		for (key in dishMenu) {
@@ -367,7 +396,7 @@ var DinnerModel = function() {
 	}
 
 	this.getAllDishes = function(type,filter) {
-	  return dishes.filter(function(dish) {
+	  return dishMenu.filter(function(dish) {
 		var found = true;
 		if(filter){
 			found = false;
@@ -385,323 +414,10 @@ var DinnerModel = function() {
 	}
 	//function that returns a dish of specific ID
 	this.getDish = function(id) {
-	    for(key in dishes){
-		if(dishes[key].id == id) {
-		    return dishes[key];
-		}
-	    }
+	    for(key in dishMenu){
+		if(dishMenu[key].id == id) {
+		    return dishMenu[key];
+		  }
+	  }
 	}
-	// the dishes constant contains an array of all the
-	// dishes in the database. Each dish has id, name, type,
-	// image (name of the image file), description and
-	// array of ingredients. Each ingredient has name,
-	// quantity (a number), price (a number) and unit (string
-	// defining the unit i.e. "g", "slices", "ml". Unit
-	// can sometimes be empty like in the example of eggs where
-	// you just say "5 eggs" and not "5 pieces of eggs" or anything else.
-        var dishes = [{
-
-					'id':1,
-					'name':'Frenched toast',
-					'type':'starter',
-					'image':'toast.jpg',
-					'description':"Not even French...",
-
-					'ingredients':[{
-
-						'name':'eggs',
-						'quantity':0.5,
-						'unit':'',
-						'price':10
-						},{
-
-						'name':'milk',
-						'quantity':30,
-						'unit':'ml',
-						'price':6
-						},{
-
-						'name':'brown sugar',
-						'quantity':7,
-						'unit':'g',
-						'price':1
-						},{
-
-						'name':'ground nutmeg',
-						'quantity':0.5,
-						'unit':'g',
-						'price':12
-						},{
-
-						'name':'white bread',
-						'quantity':2,
-						'unit':'slices',
-						'price':2
-						}]
-
-					},{
-
-					'id':2,
-					'name':'Sourdough Starter',
-					'type':'starter',
-					'image':'sourdough.jpg',
-					'description':"Who even likes sourdough? Why can't it be happy?",
-
-					'ingredients':[{
-
-						'name':'active dry yeast',
-						'quantity':0.5,
-						'unit':'g',
-						'price':4
-						},{
-
-						'name':'warm water',
-						'quantity':30,
-						'unit':'ml',
-						'price':0
-
-						},{
-
-						'name':'all-purpose flour',
-						'quantity':15,
-						'unit':'g',
-						'price':2
-						}]
-
-					},{
-
-					'id':3,
-					'name':'Baked Brie with Peaches',
-					'type':'starter',
-					'image':'bakedbrie.jpg',
-					'description':"Brie... oh how I despise thee",
-
-					'ingredients':[{
-
-						'name':'round Brie cheese',
-						'quantity':10,
-						'unit':'g',
-						'price':8
-						},{
-
-						'name':'raspberry preserves',
-						'quantity':15,
-						'unit':'g',
-						'price':10
-						},{
-
-						'name':'peaches',
-						'quantity':1,
-						'unit':'',
-						'price':4
-						}]
-
-					},{
-
-					'id':100,
-					'name':'Meat balls',
-					'type':'main dish',
-					'image':'meatballs.jpg',
-					'description':"As the name suggests, it's not suitable for vegans in the slightest.",
-
-					'ingredients':[{
-
-						'name':'extra lean ground beef',
-						'quantity':115,
-						'unit':'g',
-						'price':20
-						},{
-
-						'name':'sea salt',
-						'quantity':0.7,
-						'unit':'g',
-						'price':3
-						},{
-
-						'name':'small onion, diced',
-						'quantity':0.25,
-						'unit':'',
-						'price':2
-						},{
-
-						'name':'garlic salt',
-						'quantity':0.7,
-						'unit':'g',
-						'price':2
-						},{
-
-						'name':'Italian seasoning',
-						'quantity':0.6,
-						'unit':'g',
-						'price':3
-						},{
-
-						'name':'dried oregano',
-						'quantity':0.3,
-						'unit':'g',
-						'price':3
-						},{
-
-						'name':'crushed red pepper flakes',
-						'quantity':0.6,
-						'unit':'g',
-						'price':3
-						},{
-
-						'name':'Worcestershire sauce',
-						'quantity':6,
-						'unit':'ml',
-						'price':7
-						},{
-
-						'name':'milk',
-						'quantity':20,
-						'unit':'ml',
-						'price':4
-						},{
-
-						'name':'grated Parmesan cheese',
-						'quantity':5,
-						'unit':'g',
-						'price':8
-						},{
-
-						'name':'seasoned bread crumbs',
-						'quantity':15,
-						'unit':'g',
-						'price':4
-						}]
-
-					},{
-
-					'id':101,
-					'name':'MD 2',
-					'type':'main dish',
-					'image':'bakedbrie.jpg',
-					'description':"Come on, it's just Brie again but even worse!",
-
-					'ingredients':[{
-
-						'name':'ingredient 1',
-						'quantity':1,
-						'unit':'pieces',
-						'price':8
-						},{
-
-						'name':'ingredient 2',
-						'quantity':15,
-						'unit':'g',
-						'price':7
-						},{
-
-						'name':'ingredient 3',
-						'quantity':10,
-						'unit':'ml',
-						'price':4
-						}]
-
-					},{
-
-					'id':102,
-					'name':'MD 3',
-					'type':'main dish',
-					'image':'meatballs.jpg',
-					'description':"You sacrifice your firstborn child to Knack.",
-
-					'ingredients':[{
-
-						'name':'ingredient 1',
-						'quantity':2,
-						'unit':'pieces',
-						'price':8
-						},{
-
-						'name':'ingredient 2',
-						'quantity':10,
-						'unit':'g',
-						'price':7
-						},{
-
-						'name':'ingredient 3',
-						'quantity':5,
-						'unit':'ml',
-						'price':4
-						}]
-
-					},{
-
-					'id':103,
-					'name':'MD 4',
-					'type':'main dish',
-					'image':'meatballs.jpg',
-					'description':"Look at a mirror and think about hot bois.",
-
-					'ingredients':[{
-
-						'name':'ingredient 1',
-						'quantity':1,
-						'unit':'pieces',
-						'price':4
-						},{
-
-						'name':'ingredient 2',
-						'quantity':12,
-						'unit':'g',
-						'price':7
-						},{
-
-						'name':'ingredient 3',
-						'quantity':6,
-						'unit':'ml',
-						'price':4
-						}]
-
-					},{
-
-					'id':200,
-					'name':'Chocolat Ice cream',
-					'type':'dessert',
-					'image':'icecream.jpg',
-					'description':"Find a snowman and make him teach you the secret of nice-cream.",
-
-					'ingredients':[{
-
-						'name':'ice cream',
-						'quantity':100,
-						'unit':'ml',
-						'price':6
-						}]
-
-					},{
-
-					'id':201,
-					'name':'Vanilla Ice cream',
-					'type':'dessert',
-					'image':'icecream.jpg',
-					'description':"Be bad at sex, the rest comes naturally.",
-
-					'ingredients':[{
-
-						'name':'ice cream',
-						'quantity':100,
-						'unit':'ml',
-						'price':6
-						}]
-
-					},{
-
-					'id':202,
-					'name':'Strawberry',
-					'type':'dessert',
-					'image':'icecream.jpg',
-					'description':"Listen to De Vet Du and imagine yourself as a gay boi.",
-
-					'ingredients':[{
-
-						'name':'ice cream',
-						'quantity':100,
-						'unit':'ml',
-						'price':6
-						}]
-					}];
 }

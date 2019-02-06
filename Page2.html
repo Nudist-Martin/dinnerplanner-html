@@ -9,62 +9,25 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 </head>
-<body>
+  <body>
 
   <header class="jumbotron text-center container-fluid" style="margin-bottom:0">
     <h1>Dinner Planner</h1>
   </header>
 
-  <div class="container-fluid border border-dark" style="margin-top:0px" id="Sidebar">
+  <div class="container-fluid border border-dark" style="margin-top:0px">
     <div class="row">
-      <div class="col-sm-3 vh-100 bg-light border">
-        <h3 class="text-center">Your Dinner</h3>
-				<div class="col">
-				  <p>Guests</p>
-				</div>
-				<div class="col">
-			    <div type="text" class="form-control" placeholder="Select Guests" id="guestNum">
-              <!--Här ska det in en siffra-->
-					  <p></p>
-					</div>
-				</div>
-				<div class="col">
-					 <div class="btn-group-horizontal" id="ourButtons">
-					   <button type="button" class="btn-deafult" id="buttonUp">+</button>
-						 <button type="button" class="btn-deafult" id="buttonDown">-</button>
-					 </div>
-				</div>
-	    <div class="row border bg-secondary" style="margin-top:10px; margin-bottom:10px">
-	      <div class="col">
-		      <p>Dish name</p>
-		    </div>
-		    <div class="col">
-		      <p class="text-right">Cost</p>
-		    </div>
+      <div class="col-sm-3 vh-100 bg-light border" id=sidebar>
       </div>
-      <div class="row">
-	      <div class="col-sm" id= "sidebarList">
-		    </div>
-	    </div>
-	    <div class="row">
-	      <div class="col-sm d-flex justify-content-end">
-		      <div id="totSum"> 0.0 SEK </div>
-		    </div>
-	    </div>
-	    <div class="row">
-	      <div class="col-sm d-flex justify-content-center">
-		      <button type="submit" class="btn btn-primary" id="confirmOrder">Confirm Order</button>
-		    </div>
-	    </div>
-    </div>
 
-    <div class="col-sm-9 vh-100 border-left border-dark" id="mealView">
+    <div class="col-sm-9 vh-100 border-left border-dark" id="findADish">
       <h4>Find a dish</h4>
       <div class="row">
         <div class="col-sm-9">
           <input type="text" class="form-control my-2" id="keyWords" placeholder="Enter key words">
+          <!-- Här ska det in en controller eller nått -->
         </div>
-        <div class="dropdown">
+        <div class="dropdown"> <!-- Ska det vara ett ID här någonstans? -->
           <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Choose Type
             <span class="caret"></span>
               </button>
@@ -74,48 +37,18 @@
                 <li><a href="#">Dessert</a></li>
                 <li><a href="#">Side Dish</a></li>
               </ul>
+              <!-- Här ska det in en massa controllers eller nått -->
         </div>
         <div style="margin-left:10px";><button type="submit" class="btn btn-primary">Search</button>
+          <!-- Här ska det in en controller eller nått -->
         </div>
       </div>
-
-      <div class="row border-top border-dark">
-        <div class="col-md-4" style="margin-left: 20px">
-          <div class="thumbnail border border-light">
-            <a href="images/sourdough.jpg">
-              <img src="images/sourdough.jpg" alt="sourdough" style="width:100%">
-              <div class="caption">
-                <p>This is a jar</p>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="thumbnail border border-light">
-            <a href="images/bakedbrie.jpg">
-              <img src="images/bakedbrie.jpg" alt="bakedBrie" style="width:100%">
-              <div class="caption">
-                <p>cheezy</p>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="thumbnail border border-light">
-            <a href="images/toast.jpg">
-              <img src="images/toast.jpg" alt="toast" style="width:100%">
-              <div class="caption">
-                <p>fattig riddare</p>
-              </div>
-            </a>
-          </div>
-        </div>
+      <div class="row border-top border-dark" id="availableDishes">
+        <div id="dishOptions" style="text-align:center; margin:10px;">
       </div>
-        <!--Här trycker vi in maten från mealViews-->
-
     </div>
   </div>
-</div>
+  </div>
 </div>
 
   <!-- jQuery, only for use by Bootstrap -->
@@ -124,10 +57,12 @@
   <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 
 	<!-- The application JavaScript code -->
-	<script src="js/app.js"></script>
-	<script src="js/model/dinnerModel.js"></script>
-	<script src="js/view/mealsView.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/model/dinnerModel.js"></script>
+  <script src="js/view/mealsView.js"></script>
   <script src="js/view/welcomeView.js"></script>
   <script src="js/view/Sidebarview.js"></script>
-</body>
+  <script src="js/view/dishDescriptionView.js"></script>
+  <script src="js/view/finalOrderView.js"></script>
+  </body>
 </html>

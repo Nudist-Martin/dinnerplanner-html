@@ -17,31 +17,29 @@
 
   <div class="container-fluid col-sm-12 border border-dark" style="margin-top:0px">
     <h2 style="text-align: left">My Dinner: 5 people<h2>
+      <!--Här ska det in en controller eller nått-->
     <div style="text-align: right">
-      <button type="submit" class="btn btn-primary">Back to Edit</button>
+      <button type="submit" class="btn btn-primary" id="backToEdit">Back to Edit</button>
     </div>
   </div>
-  <div class="row">
-  <div class="col-sm-9 border-right border-bottom border-dark">
-    <div>
-      <img src="images/skaldjur.jpg" class="img-responsive" style="width: 50%; height: 80%">
-    <!--Här ska det komma bilder och respektive kostnad-->
+  <div class="row" id="sho">
+  <div class="col-sm-9 border-right border-bottom border-dark" id="finalDishes">
+    
   </div>
-  </div>
-  <div class="container-fluid col-sm-3 border-bottom border-dark">
+  <div class="container-fluid col-sm-3 border-bottom border-dark" id="orderContainer">
     <div class="row">
-      <p>Total Cost:</p>
+      <div style="margin-left: 10px">Total Cost:</div>
     </div>
     <div class="row">
-      <div id=#totalCost>
+      <div id="totSum" style="margin-left: 10px">
         <!--Här ska totala kostnaden in-->
-        SEK
-      </div>
+      </div>&nbspSEK
     </div>
   </div>
 </div>
   <footer class="container-fluid col-sm-12 text-center">
     <button type="submit" class="btn btn-primary btn-lg" style="margin-top: 40px">Print Full Recipe</button>
+    <!--Här ska det in en controller eller nått-->
   </footer>
   <!-- jQuery, only for use by Bootstrap -->
   <script src="https://code.jquery.com/jquery.js"></script>
@@ -49,10 +47,13 @@
   <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 
 	<!-- The application JavaScript code -->
-	<script src="js/app.js"></script>
-	<script src="js/model/dinnerModel.js"></script>
-	<script src="js/view/mealsView.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/model/dinnerModel.js"></script>
+  <script src="js/view/mealsView.js"></script>
   <script src="js/view/welcomeView.js"></script>
   <script src="js/view/Sidebarview.js"></script>
+  <script src="js/view/dishDescriptionView.js"></script>
+  <script src="js/view/finalOrderView.js"></script>
+
 </body>
 </html>
