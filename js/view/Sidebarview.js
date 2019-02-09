@@ -13,9 +13,7 @@ var Display = function(container, model){
     <div class="col">
        <div class="btn-group-horizontal" id="ourButtons" style="margin-top:10px">
          <button type="button" class="btn-deafult" id="buttonUp">+</button>
-         <!-- Här ska det in en controller eller nått -->
          <button type="button" class="btn-deafult" id="buttonDown">-</button>
-         <!-- Här ska det in en controller eller nått -->
        </div>
     </div>
   <div class="row border bg-secondary" style="margin-top:10px">
@@ -74,10 +72,13 @@ var Price = function(container, model){
     price.html(model.getTotalDishPrice(1));
 }
 
-var DishListName = function(container, model){
+/*var DishListName = function(container, model){
   var name = container.find("#dishname");
+  var dishName = model.getSelectedDish();
+
 }
 
 var DishListCost = function(container, model){
   var cost = container.find("#dishcost");
-}
+  dishCost = model.hejdintjej();
+}*/

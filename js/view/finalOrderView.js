@@ -25,3 +25,8 @@ var FinPrice = function(container, model){
     var price = container.find("#totSum");
     price.html(model.getTotalDishPrice(1));
 }
+
+var FinGuests = function(container, model){
+  var guests = container.find("#myDinner");
+  guests.html(model.getGuestNum);
+}

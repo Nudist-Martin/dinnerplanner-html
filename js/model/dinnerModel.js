@@ -11,6 +11,7 @@ var DinnerModel = function() {
 		'type':'starter',
 		'image':'toast.jpg',
 		'description':"Not even French...",
+		'preperation':"How to Make: Shie boi I dunno, mix sum shit or smthn",
 
 		'ingredients':[{
 
@@ -51,6 +52,7 @@ var DinnerModel = function() {
 		'type':'starter',
 		'image':'sourdough.jpg',
 		'description':"Who even likes sourdough? Why can't it be happy?",
+		'preperation':"How to Make: Shie boi I dunno, mix sum shit or smthn",
 
 		'ingredients':[{
 
@@ -80,6 +82,7 @@ var DinnerModel = function() {
 		'type':'starter',
 		'image':'bakedbrie.jpg',
 		'description':"Brie... oh how I despise thee",
+		'preperation':"How to Make: Shie boi I dunno, mix sum shit or smthn",
 
 		'ingredients':[{
 
@@ -108,6 +111,7 @@ var DinnerModel = function() {
 		'type':'main dish',
 		'image':'meatballs.jpg',
 		'description':"As the name suggests, it's not suitable for vegans in the slightest.",
+		'preperation':"How to Make: Shie boi I dunno, mix sum shit or smthn",
 
 		'ingredients':[{
 
@@ -184,25 +188,26 @@ var DinnerModel = function() {
 		'type':'main dish',
 		'image':'bakedbrie.jpg',
 		'description':"Come on, it's just Brie again but even worse!",
+		'preperation':"How to Make: Shie boi I dunno, mix sum shit or smthn",
 
 		'ingredients':[{
 
-			'name':'ingredient 1',
-			'quantity':1,
-			'unit':'pieces',
-			'price':8
-			},{
-
-			'name':'ingredient 2',
-			'quantity':15,
+			'name':'Cheese',
+			'quantity':50,
 			'unit':'g',
-			'price':7
+			'price':50
 			},{
 
-			'name':'ingredient 3',
-			'quantity':10,
-			'unit':'ml',
-			'price':4
+			'name':'Other cheese',
+			'quantity':4,
+			'unit':'g',
+			'price':70
+			},{
+
+			'name':'Oven',
+			'quantity':200,
+			'unit':'kg',
+			'price':1000
 			}]
 
 		},{
@@ -212,25 +217,26 @@ var DinnerModel = function() {
 		'type':'main dish',
 		'image':'skaldjur.jpg',
 		'description':"You sacrifice your firstborn child to Knack.",
+		'preperation':"How to Make: Shie boi I dunno, mix sum shit or smthn",
 
 		'ingredients':[{
 
-			'name':'ingredient 1',
+			'name':'Crab',
 			'quantity':2,
-			'unit':'pieces',
-			'price':8
+			'unit':'kg',
+			'price':389
 			},{
 
-			'name':'ingredient 2',
+			'name':'Clam',
 			'quantity':10,
 			'unit':'g',
 			'price':7
 			},{
 
-			'name':'ingredient 3',
+			'name':'Lobster',
 			'quantity':5,
-			'unit':'ml',
-			'price':4
+			'unit':'g',
+			'price':400
 			}]
 
 		},{
@@ -240,25 +246,26 @@ var DinnerModel = function() {
 		'type':'main dish',
 		'image':'meatballs.jpg',
 		'description':"Look at a mirror and think about hot bois.",
+		'preperation':"How to Make: Shie boi I dunno, mix sum shit or smthn",
 
 		'ingredients':[{
 
-			'name':'ingredient 1',
-			'quantity':1,
+			'name':'Twink',
+			'quantity':2,
 			'unit':'pieces',
 			'price':4
 			},{
 
-			'name':'ingredient 2',
-			'quantity':12,
-			'unit':'g',
-			'price':7
+			'name':'Swing',
+			'quantity':100,
+			'unit':'kg',
+			'price':700
 			},{
 
-			'name':'ingredient 3',
+			'name':'Dom',
 			'quantity':6,
-			'unit':'ml',
-			'price':4
+			'unit':'pieces',
+			'price':4000
 			}]
 
 		},{
@@ -268,6 +275,7 @@ var DinnerModel = function() {
 		'type':'dessert',
 		'image':'icecream.jpg',
 		'description':"Find a snowman and make him teach you the secret of nice-cream.",
+		'preperation':"How to Make: Shie boi I dunno, mix sum shit or smthn",
 
 		'ingredients':[{
 
@@ -284,6 +292,7 @@ var DinnerModel = function() {
 		'type':'dessert',
 		'image':'icecream.jpg',
 		'description':"Be bad at sex, the rest comes naturally.",
+		'preperation':"How to Make: Shie boi I dunno, mix sum shit or smthn",
 
 		'ingredients':[{
 
@@ -300,6 +309,7 @@ var DinnerModel = function() {
 		'type':'dessert',
 		'image':'icecream.jpg',
 		'description':"Listen to De Vet Du and imagine yourself as a gay boi.",
+		'preperation':"How to Make: Shie boi I dunno, mix sum shit or smthn",
 
 		'ingredients':[{
 
@@ -332,8 +342,8 @@ var DinnerModel = function() {
 		return guestNum;
 	}
 	//Returns the dish that is on the menu for selected type
-	this.getSelectedDish = function(type) {
-		return dishMenu.find(x => x.type === type);
+	this.getSelectedDish = function(id) {
+		return dishMenu.find(x => x.id === id);
 	}
 
 	//Returns all the dishes on the menu.

@@ -15,8 +15,8 @@
     <h1>Dinner Planner</h1>
   </header>
 
-  <div class="container-fluid col-sm-12 border border-dark" style="margin-top:0px">
-    <h2 style="text-align: left">My Dinner: 5 people<h2>
+  <div class="container-fluid col-sm-12 border border-dark" style="margin-top:0px" id="dinnerGuestsRoot">
+    <h2 style="text-align: left" id="dinnerGuests">My dinner: <span id="finDinGuests"> </span> people <h2>
       <!--Här ska det in en controller eller nått-->
     <div style="text-align: right">
       <button type="submit" class="btn btn-primary" id="backToEdit">Back to Edit</button>
@@ -24,10 +24,10 @@
     </div>
   </div>
   <div class="row">
-  <div class="container-fluid col-sm-6 border-right border-dark">
+  <div class="container-fluid col-sm-6 border-right border-dark" id="orderDescriptions">
     <p>Här ska det in en massa bilder och beskrivningar</p>
   </div>
-  <div class="container-fluid col-sm-6">
+  <div class="container-fluid col-sm-6" id="preperationDescriptions">
     <p>Här ska det in en massa förberedelsebeskrivningar</p>
   </div>
 </div>
@@ -39,12 +39,13 @@
 
 	<!-- The application JavaScript code -->
   <script src="js/app.js"></script>
-  <script src="js/model/dinnerModel.js"></script>
-  <script src="js/view/mealsView.js"></script>
-  <script src="js/view/welcomeView.js"></script>
-  <script src="js/view/Sidebarview.js"></script>
+	<script src="js/model/dinnerModel.js"></script>
+  <script src="js/view/confirmedView.js"></script>
   <script src="js/view/dishDescriptionView.js"></script>
+  <script src="js/view/FilterView.js"></script>
   <script src="js/view/finalOrderView.js"></script>
-  
+	<script src="js/view/mealsView.js"></script>
+  <script src="js/view/Sidebarview.js"></script>
+
 </body>
 </html>
