@@ -7,23 +7,199 @@
     <title>Dinner planner</title>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="/CSS/Stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="Stylesheet.css">
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
 
   </head>
   <body>
-	<div class="container">
-		<h1>Dinner planner</h1>
-		<div id="exampleView">
-			<div>
-				Number of guests: <span id="numberOfGuests"></span>
-			</div>
-			<div>
-          <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
-				<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
-			</div>
-		</div>
-	</div>
+    <!--Startview-->
+    <header class="jumbotron text-center container-fluid" style="margin-bottom:0">
+      <h1>Dinner Planner</h1>
+    </header>
+    <div id="startView" class="text-center" style="margin-top:50px">
+      <p> Welcome to the dinnerplanner. Here you can create a tasty meal for you and your friends. </p>
+      <!-- Här ska det in en controller eller nått -->
+      <button type="submit" class="btn btn-primary" id="dinnerButton">Create New Dinner</button>
+    </div>
+
+    <!--Sidebarview-->
+    <div class="col-sm-3 vh-100 bg-light border" id="sidebarView">
+      <h3 class="text-center">Your Dinner</h3>
+      <div class="col">
+        <p>Guests</p>
+      </div>
+      <div class="col">
+        <div type="text" class="form-control" placeholder="Select Guests">
+            <!-- Här ska det in en controller eller nått -->
+          <p id="guestNum"></p>
+        </div>
+      </div>
+      <div class="col">
+         <div class="btn-group-horizontal" id="ourButtons" style="margin-top:10px">
+           <button type="button" class="btn-deafult" id="buttonUp">+</button>
+           <button type="button" class="btn-deafult" id="buttonDown">-</button>
+         </div>
+      </div>
+    <div class="row border bg-secondary" style="margin-top:10px">
+      <div class="col">
+        <p>Dish name</p>
+      </div>
+      <div class="col">
+        <p class="text-right">Cost</p>
+      </div>
+    </div>
+    <div class="row border bg-secondary" id="sidebarList">
+      <div class="col">
+        <!-- Här ska det in en controller eller nått -->
+        <p></p>
+      </div>
+      <div class="col">
+        <p class="text-right">
+          <!-- Här ska det in en controller eller nått -->
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm d-flex justify-content-end">
+        <!-- Här ska det in en controller eller nått -->
+        <div id="totSum"></div>&nbspSEK
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary" id="confirmOrder">Confirm Order</button>
+        <!-- Här ska det in en controller eller nått -->
+      </div>
+    </div>
+    </div>
+
+    <!--FilterView-->
+    <div class="col-sm-9 vh-100 border-left border-dark" id="filterView">
+      <h4>Find a dish</h4>
+      <div class="row">
+        <div class="form-group">
+          <input type="text" class="form-control" id="keyWords" placeholder="Enter key words">
+          <!-- Här ska det in en controller eller nått -->
+        <div class="dropdown">
+              <select class="form-control" id="dropDownMenu">
+                <option>Appetizer<option>
+                <option>Appetizer<option>
+                <option>Appetizer<option>
+                <option>Appetizer<option>
+                <option>Appetizer<option>
+                <option>Appetizer<option>
+                <option>Appetizer<option>
+                <option>Appetizer<option>
+                <option>Appetizer<option>
+                <option>main+course<option>
+                <option>dessert<option>
+              </select>
+              <!-- Här ska det in en massa controllers eller nått -->
+        </div>
+        </div>
+        <div style="margin-left:10px";><button id="submitButton" type="submit" class="btn btn-primary">Search</button>
+          <!-- Här ska det in en controller eller nått -->
+        </div>
+      </div>
+
+      <!--dishListView-->
+      <div class="row border-top border-dark" id="dishListView">
+        <div class="loader" style=""></div>
+        <div id="dishOptions" style="text-align:center; margin:10px;">
+        </div>
+      </div>
+    </div>
+
+    <!--dishDescriptionView-->
+    <div class="col-sm-9 vh-100 border-left border-dark" id="dishDescriptionView">
+      <div class="row">
+        <div class="col-sm-6" id="dishDescription">
+          <h2>Skaldjursplatå</h2>
+            <div>
+              <div class="row">
+                <div class="col-sm-9">
+                  <img src="images/skaldjur.jpg" class="img-responsive" style="width: 50%; height: 80%">
+                </div>
+              </div>
+              <div class="row">
+                <p id="description" style="margin-left: 20px">Åh, kolla vad rik jag är!<p>
+              </div>
+              <div>
+                <button type="submit" class="btn btn-primary">Back to search</button>
+              </div>
+              <div>
+                <h1>Preparations</h1>
+                  <span id="preperation">Såhär lagar man god mat!</span>
+              </div>
+            </div>
+          </div>
+
+        <div class="col-sm-6 border bg-warning" id="losIngredientos">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col" id="ingredientHead">
+                <h4>Ingredients for <span id="guestNumIngr"></span> people </h4>
+                <!-- Här ska det in en controller eller nått -->
+              </div>
+            </div>
+            <div class="row border border-dark">
+              <div class="col" id="dishIngredients">
+
+              </div>
+            </div>
+            <div class="row border-top border-dark" style="margin-top:10px">
+              <div class="col"><button class="btn btn-primary" id="addButton">Add to menu</button>Total cost:
+                <span id="ingredientsTotalPrice"></span>
+                <!-- Här ska det in en controller eller nått -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--finalOrderView-->
+    <div class="row" id="finalOrderView">
+    <div class="col-sm-9 border-right border-bottom border-dark" id="finalDishes">
+
+    </div>
+    <div class="container-fluid col-sm-3 border-bottom border-dark" id="orderContainer">
+      <div class="row">
+        <div style="margin-left: 10px">Total Cost:</div>
+      </div>
+      <div class="row">
+        <div id="totSum" style="margin-left: 10px">
+        </div>&nbspSEK
+      </div>
+    </div>
+  </div>
+  <!--Här är en footer, det kanske är dåligt -->
+    <footer id="recipeFooter" class="container-fluid col-sm-12 text-center">
+      <button type="submit" class="btn btn-primary btn-lg" style="margin-top: 40px">Print Full Recipe</button>
+      <!--Här ska det in en controller eller nått-->
+    </footer>
+
+  <!--confirmedView-->
+  <div class="container-fluid col-sm-12 border border-dark" style="margin-top:0px" id="confirmedView">
+    <h2 style="text-align: left" id="dinnerGuests">My dinner: <span id="finDinGuests"> </span> people <h2>
+      <!--Här ska det in en controller eller nått-->
+    <div style="text-align: right">
+      <button type="submit" class="btn btn-primary" id="backToEdit">Back to Edit</button>
+      <!--Här ska det in en controller eller nått-->
+    </div>
+  </div>
+  <div id="orderAndPrepView" class="row">
+  <div class="container-fluid col-sm-6 border-right border-dark" id="orderDescriptions">
+    <p>Här ska det in en massa bilder och beskrivningar</p>
+  </div>
+  <div class="container-fluid col-sm-6" id="preperationDescriptions">
+    <p>Här ska det in en massa förberedelsebeskrivningar</p>
+  </div>
+</div>
 
     <!-- jQuery, only for use by Bootstrap -->
     <script src="https://code.jquery.com/jquery.js"></script>
@@ -31,10 +207,19 @@
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 
 	<!-- The application JavaScript code -->
-	<script src="js/app.js"></script>
+  <script src="js/app.js"></script>
 	<script src="js/model/dinnerModel.js"></script>
-	<script src="js/view/exampleView.js"></script>
-  <script src="js/view/Sidebarview.js"></script>
-	<!-- TODO: Here you should include JS code for your other views -->
+  <script src="js/view/confirmedView.js"></script>
+  <script src="js/view/dishDescriptionView.js"></script>
+  <script src="js/view/filterView.js"></script>
+  <script src="js/view/finalOrderView.js"></script>
+	<script src="js/view/dishListView.js"></script>
+  <script src="js/view/sidebarview.js"></script>
+  <script src="js/view/startView.js"></script>
+
+  <!-- Controllers -->
+  <script src="Controller/sidebarController.js"></script>
+  <script src="Controller/filterController.js"></script>
+
   </body>
 </html>

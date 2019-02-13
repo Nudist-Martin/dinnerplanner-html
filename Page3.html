@@ -23,10 +23,48 @@
       <div class="col-sm-9 vh-100 border-left border-dark" id="dishView">
         <div class="row">
           <div class="col-sm-6" id="dishDescription">
-
+            <h2>Skaldjursplatå</h2>
+              <div>
+                <div class="row">
+                  <div class="col-sm-9">
+                    <img src="images/skaldjur.jpg" class="img-responsive" style="width: 50%; height: 80%">
+                  </div>
+                </div>
+                <div class="row">
+                  <p style="margin-left: 20px">Åh, kolla vad rik jag är!<p>
+                </div>
+                <div>
+                  <button type="submit" class="btn btn-primary">Back to search</button>
+                </div>
+                <div>
+                  <h1>Preparations</h1>
+                    Såhär lagar man god mat!
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="col-sm-6 border bg-warning" id="losIngredientos">
 
+          <div class="col-sm-6 border bg-warning" id="losIngredientos">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col" id="ingredientHead">
+                  <h4>Ingredients for <span id="guestNumIngr"></span> people </h4>
+                  <!-- Här ska det in en controller eller nått -->
+                </div>
+              </div>
+              <div class="row border border-dark">
+                <div class="col" id="dishIngredients">
+
+                </div>
+              </div>
+              <div class="row" style="margin-top:10px">
+                <div class="col"><button class="btn btn-primary" id="addButton">Add to menu</button>
+                  <!-- Här ska det in en controller eller nått -->
+                </div>
+                  <div class="col" id="ingredientsTotalPrice">
+                  </div>
+              </div>
+            </div>
 				  </div>
       </div>
     </div>

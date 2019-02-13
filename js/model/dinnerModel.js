@@ -1,8 +1,8 @@
 var DinnerModel = function() {
-	//TODO Lab 1 implement the data structure that will hold number of guest
-	// and selected dishes for the dinner menu
+
 	var guestNum = 1;
-	var totalPrice = 40;
+	var sumting;
+	var modId = '1';
 	var customerMenu = [];
 	var dishMenu = [{
 
@@ -17,7 +17,7 @@ var DinnerModel = function() {
 
 			'name':'eggs',
 			'quantity':0.5,
-			'unit':'',
+			'unit':'st',
 			'price':10
 			},{
 
@@ -100,7 +100,7 @@ var DinnerModel = function() {
 
 			'name':'peaches',
 			'quantity':1,
-			'unit':'',
+			'unit':'st',
 			'price':4
 			}]
 
@@ -129,7 +129,7 @@ var DinnerModel = function() {
 
 			'name':'small onion, diced',
 			'quantity':0.25,
-			'unit':'',
+			'unit':'st',
 			'price':2
 			},{
 
@@ -236,7 +236,7 @@ var DinnerModel = function() {
 			'name':'Lobster',
 			'quantity':5,
 			'unit':'g',
-			'price':400
+			'price':40
 			}]
 
 		},{
@@ -252,7 +252,7 @@ var DinnerModel = function() {
 
 			'name':'Twink',
 			'quantity':2,
-			'unit':'pieces',
+			'unit':'st',
 			'price':4
 			},{
 
@@ -264,7 +264,7 @@ var DinnerModel = function() {
 
 			'name':'Dom',
 			'quantity':6,
-			'unit':'pieces',
+			'unit':'st',
 			'price':4000
 			}]
 
@@ -326,9 +326,10 @@ var DinnerModel = function() {
 			}
 
 	    var notifyObservers = function(changeDetails){
-	        for(var i=0; i < observers.length; i++)
+	        for(var i=0; i < observers.length; i++){
 	             observers[i](changeDetails);
 						 }
+					}
 
 	this.setGuestNum = function(num) {
 		guestNum += num;
@@ -351,6 +352,15 @@ var DinnerModel = function() {
 		return dishMenu;
 	}
 
+	this.setSearchValue = function(searchResult){
+		sumting = searchResult;
+		notifyObservers("searched");
+	}
+
+	this.getSearchValue = function(){
+		return sumting;
+	}
+
 	this.setCustomerMenu = function(id){
 		for (dish in dishMenu){
 			if (dishMenu[dish].id === id){
@@ -365,27 +375,38 @@ var DinnerModel = function() {
 
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
-		for (key in dishMenu) {
-			return dishMenu[key].ingredients;
+		var ingredientList = [];
+		for (key in customerMenu) {
+			if (key != undefined){
+				ingredientList.push(this.getDish(customerMenu[key]).ingredients);
+			};
+			return ingredientList;
 		}
 	}
 	//Returns the total price of the dish (all the ingredients multiplied by number of guests).
 	this.getTotalDishPrice = function(id) {
 		var totalDishPrice = 0;
 		var people = this.getGuestNum();
-		var dishIngredientList = dishMenu.find(x => x.id === id).ingredients;
-		for (key in dishIngredientList){
-			totalDishPrice += dishIngredientList[key].price*people;
+		if (id != undefined) {
+			var dishIngredientz = dishMenu.find(x => x.id === id).ingredients;
+
+		for (key in dishIngredientz){
+			totalDishPrice += dishIngredientz[key].price*people;
 		}
 		return totalDishPrice;
 	}
+}
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
 		var totalPrice = 0;
 		var people = this.getGuestNum();
 		var ingredientList = this.getAllIngredients();
-		for (key in ingredientList) {
-			totalPrice += ingredientList[key].price*people;
+		for (key in ingredientList){
+			var listiboi = ingredientList[key];
+			for (i in listiboi){
+				var ingr = listiboi[i];
+				totalPrice += ingr.price*people;
+			}
 		}
 		return totalPrice;
 	}
@@ -398,6 +419,7 @@ var DinnerModel = function() {
 				removeDishFromMenu(oldDish.id);
 			}
 		dishMenu.push(newDish);
+		notifyObservers("Sauce");
 	}
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
@@ -405,7 +427,10 @@ var DinnerModel = function() {
 		delete dishMenu[idx];
 	}
 
-	this.getAllDishes = function(type,filter) {
+	/*this.getAllDishes = function(type,filter) {
+		if (type === "All"){
+			return dishMenu;
+		}
 	  return dishMenu.filter(function(dish) {
 		var found = true;
 		if(filter){
@@ -421,7 +446,17 @@ var DinnerModel = function() {
 		}
 	  	return dish.type == type && found;
 	  });
-	}
+	}*/
+
+	this.getAllDishes = function (type, filter) {
+  return fetch('https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?query='+filter+'&type='+type+'&number=60',{
+            headers:{
+                'X-Mashape-Key': "3d2a031b4cmsh5cd4e7b939ada54p19f679jsn9a775627d767"
+            }
+      }).then(response => response.json())
+        .then(data => data.results)
+}
+
 	//function that returns a dish of specific ID
 	this.getDish = function(id) {
 	    for(key in dishMenu){
