@@ -8,7 +8,10 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="Stylesheet.css">
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 
   </head>
   <body>
@@ -21,6 +24,10 @@
       <!-- Här ska det in en controller eller nått -->
       <button type="submit" class="btn btn-primary" id="dinnerButton">Create New Dinner</button>
     </div>
+
+    <!--BEEG Yoshi-->
+    <div class="container-fluid border border-dark" style="margin-top:0px">
+      <div class="row">
 
     <!--Sidebarview-->
     <div class="col-sm-3 vh-100 bg-light border" id="sidebarView">
@@ -86,17 +93,17 @@
           <!-- Här ska det in en controller eller nått -->
         <div class="dropdown">
               <select class="form-control" id="dropDownMenu">
-                <option>Appetizer<option>
-                <option>Appetizer<option>
-                <option>Appetizer<option>
-                <option>Appetizer<option>
-                <option>Appetizer<option>
-                <option>Appetizer<option>
-                <option>Appetizer<option>
-                <option>Appetizer<option>
-                <option>Appetizer<option>
-                <option>main+course<option>
+                <option>appetizer<option>
+                <option>main+dish<option>
                 <option>dessert<option>
+                <option>side+dish<option>
+                <option>salad<option>
+                <option>bread<option>
+                <option>breakfast<option>
+                <option>soup<option>
+                <option>beverage<option>
+                <option>sauce<option>
+                <option>drink<option>
               </select>
               <!-- Här ska det in en massa controllers eller nått -->
         </div>
@@ -105,11 +112,9 @@
           <!-- Här ska det in en controller eller nått -->
         </div>
       </div>
-
-      <!--dishListView-->
       <div class="row border-top border-dark" id="dishListView">
         <div class="loader" style=""></div>
-        <div id="dishOptions" style="text-align:center; margin:10px;">
+        <div class="col-sm-9" id="dishOptions" style="max-height:500px; overflow:scroll; text-align:center; margin:10px;">
         </div>
       </div>
     </div>
@@ -161,6 +166,8 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
 
     <!--finalOrderView-->
     <div class="row" id="finalOrderView">
@@ -212,7 +219,7 @@
   <script src="js/view/confirmedView.js"></script>
   <script src="js/view/dishDescriptionView.js"></script>
   <script src="js/view/filterView.js"></script>
-  <script src="js/view/finalOrderView.js"></script>
+  <!--<script src="js/view/finalOrderView.js"></script> -->
 	<script src="js/view/dishListView.js"></script>
   <script src="js/view/sidebarview.js"></script>
   <script src="js/view/startView.js"></script>
@@ -220,6 +227,7 @@
   <!-- Controllers -->
   <script src="Controller/sidebarController.js"></script>
   <script src="Controller/filterController.js"></script>
+  <script src="Controller/dishListController.js"></script>
 
   </body>
 </html>

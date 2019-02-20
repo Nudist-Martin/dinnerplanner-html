@@ -7,22 +7,21 @@ this.type = "all";
 this.id = "ids";
 
 //Views
+let dishList = new DishlistView($("#dishListView"), model);
 let start = new StartView($("#startView"), model);
 let sidebar = new SidebarView($("#sidebarView"), model);
 let filter = new FilterView($("#filterView"), model);
-let dishList = new DishlistView($("#dishListView"), model);
 let dishDescription = new DishDescriptionView($("#dishDescriptionView"), model);
-let finalOrder = new FinalOrderView($("#finalOrderView"), model);
+//let finalOrder = new FinalOrderView($("#finalOrderView"), model);
 let confirmedView = new ConfirmedView($("#confirmedView"), model);
 
+//Controllers
 let sidebarController = new SidebarController(sidebar, model, this);
 let filterController = new FilterController(filter, model, this);
 
 //Controllers
 /*let startController = new StartController(start, model, this);
 
-
-let dishListController = new DishListController(dishList, model, this);
 let dishDescriptionController = new DishDescriptionController(dishDescription, model, this);
 let finalOrderController = new FinalOrderController(finalOrder, model, this);
 let confirmedController = new ConfirmedController(start, model, this);*/
@@ -50,14 +49,15 @@ var showStartScreen = function() {
   $('#startView').show();
 }
 
-var showSelectionScreen = function() {
+this.showSelectionScreen = function() {
+  let dishListController = new DishListController(dishList, model, this);
   hideAllViews();
   $('#sidebarView').show();
   $('#filterView').show();
   $('#dishListView').show();
 }
 
-var showDishDetailsScreen = function() {
+this.showDishDetailsScreen = function() {
   hideAllViews();
   $('#sidebarView').show();
   $('#dishDescriptionView').show();
@@ -77,5 +77,5 @@ var showYourDinnerScreen = function() {
   $('#orderAndPrepView').show();
 }
 
-showSelectionScreen();
+this.showSelectionScreen();
 };

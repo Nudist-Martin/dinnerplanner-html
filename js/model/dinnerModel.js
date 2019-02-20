@@ -4,321 +4,7 @@ var DinnerModel = function() {
 	var sumting;
 	var modId = '1';
 	var customerMenu = [];
-	var dishMenu = [{
-
-		'id':1,
-		'name':'French toast',
-		'type':'starter',
-		'image':'toast.jpg',
-		'description':"Not even French...",
-		'preperation':"How to Make: Shie boi I dunno, mix sum shit or smthn",
-
-		'ingredients':[{
-
-			'name':'eggs',
-			'quantity':0.5,
-			'unit':'st',
-			'price':10
-			},{
-
-			'name':'milk',
-			'quantity':30,
-			'unit':'ml',
-			'price':6
-			},{
-
-			'name':'brown sugar',
-			'quantity':7,
-			'unit':'g',
-			'price':1
-			},{
-
-			'name':'ground nutmeg',
-			'quantity':0.5,
-			'unit':'g',
-			'price':12
-			},{
-
-			'name':'white bread',
-			'quantity':2,
-			'unit':'slices',
-			'price':2
-			}]
-
-		},{
-
-		'id':2,
-		'name':'Jar with dough' ,
-		'type':'starter',
-		'image':'sourdough.jpg',
-		'description':"Who even likes sourdough? Why can't it be happy?",
-		'preperation':"How to Make: Shie boi I dunno, mix sum shit or smthn",
-
-		'ingredients':[{
-
-			'name':'active dry yeast',
-			'quantity':0.5,
-			'unit':'g',
-			'price':4
-			},{
-
-			'name':'warm water',
-			'quantity':30,
-			'unit':'ml',
-			'price':0
-
-			},{
-
-			'name':'all-purpose flour',
-			'quantity':15,
-			'unit':'g',
-			'price':2
-			}]
-
-		},{
-
-		'id':3,
-		'name':'Baked Brie',
-		'type':'starter',
-		'image':'bakedbrie.jpg',
-		'description':"Brie... oh how I despise thee",
-		'preperation':"How to Make: Shie boi I dunno, mix sum shit or smthn",
-
-		'ingredients':[{
-
-			'name':'round Brie cheese',
-			'quantity':10,
-			'unit':'g',
-			'price':8
-			},{
-
-			'name':'raspberry preserves',
-			'quantity':15,
-			'unit':'g',
-			'price':10
-			},{
-
-			'name':'peaches',
-			'quantity':1,
-			'unit':'st',
-			'price':4
-			}]
-
-		},{
-
-		'id':100,
-		'name':'Meatballs',
-		'type':'main dish',
-		'image':'meatballs.jpg',
-		'description':"As the name suggests, it's not suitable for vegans in the slightest.",
-		'preperation':"How to Make: Shie boi I dunno, mix sum shit or smthn",
-
-		'ingredients':[{
-
-			'name':'extra lean ground beef',
-			'quantity':115,
-			'unit':'g',
-			'price':20
-			},{
-
-			'name':'sea salt',
-			'quantity':0.7,
-			'unit':'g',
-			'price':3
-			},{
-
-			'name':'small onion, diced',
-			'quantity':0.25,
-			'unit':'st',
-			'price':2
-			},{
-
-			'name':'garlic salt',
-			'quantity':0.7,
-			'unit':'g',
-			'price':2
-			},{
-
-			'name':'Italian seasoning',
-			'quantity':0.6,
-			'unit':'g',
-			'price':3
-			},{
-
-			'name':'dried oregano',
-			'quantity':0.3,
-			'unit':'g',
-			'price':3
-			},{
-
-			'name':'crushed red pepper flakes',
-			'quantity':0.6,
-			'unit':'g',
-			'price':3
-			},{
-
-			'name':'Worcestershire sauce',
-			'quantity':6,
-			'unit':'ml',
-			'price':7
-			},{
-
-			'name':'milk',
-			'quantity':20,
-			'unit':'ml',
-			'price':4
-			},{
-
-			'name':'grated Parmesan cheese',
-			'quantity':5,
-			'unit':'g',
-			'price':8
-			},{
-
-			'name':'seasoned bread crumbs',
-			'quantity':15,
-			'unit':'g',
-			'price':4
-			}]
-
-		},{
-
-		'id':101,
-		'name':'Delikat mat',
-		'type':'main dish',
-		'image':'bakedbrie.jpg',
-		'description':"Come on, it's just Brie again but even worse!",
-		'preperation':"How to Make: Shie boi I dunno, mix sum shit or smthn",
-
-		'ingredients':[{
-
-			'name':'Cheese',
-			'quantity':50,
-			'unit':'g',
-			'price':50
-			},{
-
-			'name':'Other cheese',
-			'quantity':4,
-			'unit':'g',
-			'price':70
-			},{
-
-			'name':'Oven',
-			'quantity':200,
-			'unit':'kg',
-			'price':1000
-			}]
-
-		},{
-
-		'id':102,
-		'name':'Skaldjursplatå',
-		'type':'main dish',
-		'image':'skaldjur.jpg',
-		'description':"You sacrifice your firstborn child to Knack.",
-		'preperation':"How to Make: Shie boi I dunno, mix sum shit or smthn",
-
-		'ingredients':[{
-
-			'name':'Crab',
-			'quantity':2,
-			'unit':'kg',
-			'price':389
-			},{
-
-			'name':'Clam',
-			'quantity':10,
-			'unit':'g',
-			'price':7
-			},{
-
-			'name':'Lobster',
-			'quantity':5,
-			'unit':'g',
-			'price':40
-			}]
-
-		},{
-
-		'id':103,
-		'name':'Tasty Dish',
-		'type':'main dish',
-		'image':'meatballs.jpg',
-		'description':"Look at a mirror and think about hot bois.",
-		'preperation':"How to Make: Shie boi I dunno, mix sum shit or smthn",
-
-		'ingredients':[{
-
-			'name':'Twink',
-			'quantity':2,
-			'unit':'st',
-			'price':4
-			},{
-
-			'name':'Swing',
-			'quantity':100,
-			'unit':'kg',
-			'price':700
-			},{
-
-			'name':'Dom',
-			'quantity':6,
-			'unit':'st',
-			'price':4000
-			}]
-
-		},{
-
-		'id':200,
-		'name':'Good Ice cream',
-		'type':'dessert',
-		'image':'icecream.jpg',
-		'description':"Find a snowman and make him teach you the secret of nice-cream.",
-		'preperation':"How to Make: Shie boi I dunno, mix sum shit or smthn",
-
-		'ingredients':[{
-
-			'name':'ice cream',
-			'quantity':100,
-			'unit':'ml',
-			'price':6
-			}]
-
-		},{
-
-		'id':201,
-		'name':'Cool Ice cream',
-		'type':'dessert',
-		'image':'icecream.jpg',
-		'description':"Be bad at sex, the rest comes naturally.",
-		'preperation':"How to Make: Shie boi I dunno, mix sum shit or smthn",
-
-		'ingredients':[{
-
-			'name':'ice cream',
-			'quantity':100,
-			'unit':'ml',
-			'price':6
-			}]
-
-		},{
-
-		'id':202,
-		'name':'Tasty Ice cream',
-		'type':'dessert',
-		'image':'icecream.jpg',
-		'description':"Listen to De Vet Du and imagine yourself as a gay boi.",
-		'preperation':"How to Make: Shie boi I dunno, mix sum shit or smthn",
-
-		'ingredients':[{
-
-			'name':'ice cream',
-			'quantity':100,
-			'unit':'ml',
-			'price':6
-			}]
-		}];
+	this.dishID = "";
 
 	    var observers=[];
 	    this.addObserver = function(observer){
@@ -342,9 +28,13 @@ var DinnerModel = function() {
 	this.getGuestNum = function() {
 		return guestNum;
 	}
+
+	this.setSelectedDish = function(id) {
+		this.dishID = id;
+	}
 	//Returns the dish that is on the menu for selected type
-	this.getSelectedDish = function(id) {
-		return dishMenu.find(x => x.id === id);
+	this.getSelectedDish = function() {
+		return this.getRecipeIngredients(this.dishID);
 	}
 
 	//Returns all the dishes on the menu.
@@ -374,15 +64,14 @@ var DinnerModel = function() {
 	}
 
 	//Returns all ingredients for all the dishes on the menu.
-	this.getAllIngredients = function() {
-		var ingredientList = [];
-		for (key in customerMenu) {
-			if (key != undefined){
-				ingredientList.push(this.getDish(customerMenu[key]).ingredients);
-			};
-			return ingredientList;
-		}
-	}
+	this.getRecipeIngredients = function(id){
+    return fetch('http://sunset.nada.kth.se:8080/iprog/group/72/recipes/' + id + '/information',{
+              headers:{
+                  'X-Mashape-Key': "3d2a031b4cmsh5cd4e7b939ada54p19f679jsn9a775627d767"
+              }
+        }).then(response => response.json())
+  }
+
 	//Returns the total price of the dish (all the ingredients multiplied by number of guests).
 	this.getTotalDishPrice = function(id) {
 		var totalDishPrice = 0;
@@ -449,7 +138,7 @@ var DinnerModel = function() {
 	}*/
 
 	this.getAllDishes = function (type, filter) {
-  return fetch('https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?query='+filter+'&type='+type+'&number=60',{
+  return fetch('http://sunset.nada.kth.se:8080/iprog/group/72/recipes/search?query='+filter+'&type='+type+'&number=10',{
             headers:{
                 'X-Mashape-Key': "3d2a031b4cmsh5cd4e7b939ada54p19f679jsn9a775627d767"
             }

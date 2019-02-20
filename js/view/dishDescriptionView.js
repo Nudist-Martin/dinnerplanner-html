@@ -3,13 +3,12 @@ var DishDescriptionView = function(container, model){
   var num = container.find("#guestNumIngr");
   num.html(model.getGuestNum);
 
-  var specificDish = model.getSelectedDish(1);
-  var ingredList = model.getAllIngredients();
+  var specificDish =  model.getSelectedDish();
   var showIngredients = container.find("#dishIngredients");
   var ingredTable = document.createElement("table");
   ingredTable.setAttribute("id","bordet");
   ingredTable.setAttribute("style","border-collapse:collapse");
-  for (var idx in specificDish.ingredients){
+  for (var idx in specificDish.extendedIngredient){
       var newTr = document.createElement("tr");
       var td1 = document.createElement("td");
       td1.setAttribute("style", "font-weight:700;padding:10px; border:1px dashed black;")
@@ -20,16 +19,16 @@ var DishDescriptionView = function(container, model){
       var td4 = document.createElement("td");
       td4.setAttribute("style", "font-weight:700;padding:10px; border:1px dashed black;")
 
-      var quantity = document.createTextNode(specificDish.ingredients[idx].quantity);
+      var quantity = document.createTextNode(specificDish.extendedIngredients[idx].amount);
       td1.appendChild(quantity);
 
-      var unit = document.createTextNode(specificDish.ingredients[idx].unit);
+      var unit = document.createTextNode(specificDish.extendedIngredients[idx].unit);
       td2.appendChild(unit);
 
-      var name = document.createTextNode(specificDish.ingredients[idx].name);
+      var name = document.createTextNode(specificDish.extendedIngredients[idx].title);
       td3.appendChild(name);
 
-      var price = document.createTextNode(specificDish.ingredients[idx].price);
+      var price = document.createTextNode(specificDish.pricePerServing);
       td4.appendChild(price);
 
       newTr.appendChild(td1);
@@ -40,8 +39,8 @@ var DishDescriptionView = function(container, model){
   }
   showIngredients.html(ingredTable);
 
-  var price = container.find("#ingredientsTotalPrice");
-  var dish = model.getDish(1);
-  var dishPrice = model.getTotalDishPrice(dish.id);
-  price.html(dishPrice + " SEK");
+  var price = container.find("#IngredientsTotalPrice");
+  //var dish = model.getDish(1);
+  //var dishPrice = model.getTotalDishPrice(dish.id);
+  //price.html(dishPrice + " SEK");
 }
