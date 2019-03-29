@@ -2,8 +2,8 @@ var DinnerModel = function() {
   var guestNum = 1;
   var sumting;
   var modId = "1";
-  var customerMenu = [];
-  this.dishID = "";
+  this.customerMenu = [];
+  this.dishPromise = "";
 
   var observers = [];
   this.addObserver = function(observer) {
@@ -22,6 +22,7 @@ var DinnerModel = function() {
       guestNum = 1;
     }
     notifyObservers("setGuestNum");
+    notifyObservers("change");
   };
 
   this.getGuestNum = function() {
@@ -29,13 +30,19 @@ var DinnerModel = function() {
   };
 
   this.setSelectedDish = function(id) {
-    this.dishID = id;
+    this.dishPromise = this.getRecipeIngredients(id);
     notifyObservers("change");
   };
   //Returns the dish that is on the menu for selected type
   this.getSelectedDish = function() {
-    return this.getRecipeIngredients(this.dishID);
+    return this.dishPromise;
   };
+
+  this.addToSidebar = function() {
+    console.log("vadsomhelst");
+    this.customerMenu.push(this.dishPromise);
+    notifyObservers("added");
+  }
 
   //Returns all the dishes on the menu.
   this.getFullMenu = function() {
@@ -49,18 +56,6 @@ var DinnerModel = function() {
 
   this.getSearchValue = function() {
     return sumting;
-  };
-
-  this.setCustomerMenu = function(id) {
-    for (dish in dishMenu) {
-      if (dishMenu[dish].id === id) {
-        customerMenu.push(dishMenu[dish]);
-      }
-    }
-  };
-
-  this.getCustomerMenu = function() {
-    return customerMenu;
   };
 
   //Returns all ingredients for all the dishes on the menu. BYT UT ID MOT NÅGOT ANNAT
@@ -121,27 +116,6 @@ var DinnerModel = function() {
     delete dishMenu[idx];
   };
 
-  /*this.getAllDishes = function(type,filter) {
-		if (type === "All"){
-			return dishMenu;
-		}
-	  return dishMenu.filter(function(dish) {
-		var found = true;
-		if(filter){
-			found = false;
-			dish.ingredients.forEach(function(ingredient) {
-				if(ingredient.name.indexOf(filter)!=-1) {
-					found = true;
-				}
-			});
-			if(dish.name.indexOf(filter) != -1)	{
-				found = true;
-			}
-		}
-	  	return dish.type == type && found;
-	  });
-	}*/
-
   this.getAllDishes = function(type, filter) {
     return fetch(
       "http://sunset.nada.kth.se:8080/iprog/group/72/recipes/search?query=" +
@@ -157,14 +131,5 @@ var DinnerModel = function() {
     )
       .then(response => response.json())
       .then(data => data.results);
-  };
-
-  //function that returns a dish of specific ID
-  this.getDish = function(id) {
-    for (key in dishMenu) {
-      if (dishMenu[key].id == id) {
-        return dishMenu[key];
-      }
-    }
   };
 };

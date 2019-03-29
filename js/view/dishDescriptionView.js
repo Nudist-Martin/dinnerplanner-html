@@ -7,28 +7,32 @@ var DishDescriptionView = function(container, model) {
   };
   model.addObserver(this.update);
 
+  this.backbutton = container.find("#goBackButton");
+  this.addedButton = container.find("#addButton");
+
+  this.container = container;
   this.update = function(changeDetails) {
     if (changeDetails === "change") {
-      let showdescr = container.find("#dishDescription");
+      this.showdescr = container.find("#dishDescription");
       let showIngredients = container.find("#dishIngredients");
       var specificDish = model.getSelectedDish().then(dish => {
         var mother = document.createElement("div");
         var dishimg = document.createElement("img");
         var title = document.createElement("h5");
         var descri = document.createElement("p");
-        var backbutton = document.createElement("button");
+        //var backbutton = document.createElement("button");
         dishimg.setAttribute(
           "src",
           "https://spoonacular.com/recipeImages/" + dish.id + "-312x231.jpg"
         );
         title.appendChild(document.createTextNode(dish.title));
         descri.appendChild(document.createTextNode(dish.instructions));
-        backbutton.appendChild(document.createTextNode("Go Back"));
-        backbutton.setAttribute("class", "btn btn-primary");
+        //backbutton.appendChild(document.createTextNode("Go Back"));
+        //backbutton.setAttribute("id", "goBackButton");
         mother.appendChild(dishimg);
         mother.appendChild(title);
         mother.appendChild(descri);
-        mother.appendChild(backbutton);
+        //mother.appendChild(backbutton);
         var ingredTable = document.createElement("table");
         ingredTable.setAttribute("id", "bordet");
         ingredTable.setAttribute("style", "border-collapse:collapse");
@@ -56,7 +60,7 @@ var DishDescriptionView = function(container, model) {
           );
 
           var quantity = document.createTextNode(
-            dish.extendedIngredients[idx].amount
+            dish.extendedIngredients[idx].amount * model.getGuestNum()
           );
           td1.appendChild(quantity);
 
@@ -71,7 +75,7 @@ var DishDescriptionView = function(container, model) {
           td3.appendChild(name);
 
           var price = document.createTextNode(
-            Math.round(dish.pricePerServing / 10)
+            Math.round(dish.pricePerServing / 10) * model.getGuestNum()
           );
           td4.appendChild(price);
 
@@ -82,9 +86,9 @@ var DishDescriptionView = function(container, model) {
           ingredTable.appendChild(newTr);
         }
         var price = container.find("#ingredientsTotalPrice");
-        var dishPrice = dish.pricePerServing;
+        var dishPrice = dish.pricePerServing * model.getGuestNum();
         price.html(dishPrice + " SEK");
-        showdescr.html(mother);
+        this.showdescr.html(mother);
         showIngredients.html(ingredTable);
       });
     }

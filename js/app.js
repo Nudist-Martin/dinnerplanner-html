@@ -14,17 +14,19 @@ window.onload = function() {
     $("#dishDescriptionView"),
     model
   );
+  let customerDinner = new CustomerDinnerView($("#sidebarView"), model);
   //let finalOrder = new FinalOrderView($("#finalOrderView"), model);
-  let confirmedView = new ConfirmedView($("#confirmedView"), model);
+  //let confirmedView = new ConfirmedView($("#confirmedView"), model);
 
   //Controllers
   let sidebarController = new SidebarController(sidebar, model, this);
   let filterController = new FilterController(filter, model, this);
+  let dishDescriptionController = new DishDescriptionController(dishDescription, model, this);
 
   //Controllers
   /*let startController = new StartController(start, model, this);
 
-let dishDescriptionController = new DishDescriptionController(dishDescription, model, this);
+
 let finalOrderController = new FinalOrderController(finalOrder, model, this);
 let confirmedController = new ConfirmedController(start, model, this);*/
 

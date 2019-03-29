@@ -5,6 +5,7 @@ var DishlistView = function(container, model) {
 
   this.update = function(changeDetails) {
     if (changeDetails === "searched") {
+      $(".loader").show();
       var menu = model.getSearchValue();
       for (var idx in menu) {
         var newCont = document.createElement("DIV");
