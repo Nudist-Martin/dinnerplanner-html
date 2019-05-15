@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Dinner Planner Deluxe</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+</head>
+  <body>
+
+  <header class="jumbotron text-center container-fluid" style="margin-bottom:0">
+    <h1>Dinner Planner</h1>
+  </header>
+
+  <div class="container-fluid border border-dark" style="margin-top:0px">
+    <div class="row">
+      <!--Sidebarview-->
+      <div class="col-sm-3 vh-100 bg-light border" id=sidebar>
+        <h3 class="text-center">Your Dinner</h3>
+        <div class="col">
+          <p>Guests</p>
+        </div>
+        <div class="col">
+          <div type="text" class="form-control" placeholder="Select Guests">
+              <!-- Här ska det in en controller eller nått -->
+            <p id="guestNum"></p>
+          </div>
+        </div>
+        <div class="col">
+           <div class="btn-group-horizontal" id="ourButtons" style="margin-top:10px">
+             <button type="button" class="btn-deafult" id="buttonUp">+</button>
+             <button type="button" class="btn-deafult" id="buttonDown">-</button>
+           </div>
+        </div>
+      <div class="row border bg-secondary" style="margin-top:10px">
+        <div class="col">
+          <p>Dish name</p>
+        </div>
+        <div class="col">
+          <p class="text-right">Cost</p>
+        </div>
+      </div>
+      <div class="row border bg-secondary" id="sidebarList">
+        <div class="col">
+          <!-- Här ska det in en controller eller nått -->
+          <p></p>
+        </div>
+        <div class="col">
+          <p class="text-right">
+            <!-- Här ska det in en controller eller nått -->
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm d-flex justify-content-end">
+          <!-- Här ska det in en controller eller nått -->
+          <div id="totSum"></div>&nbspSEK
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm d-flex justify-content-center">
+          <button type="submit" class="btn btn-primary" id="confirmOrder">Confirm Order</button>
+          <!-- Här ska det in en controller eller nått -->
+        </div>
+      </div>
+      </div>
+
+    <div class="col-sm-9 vh-100 border-left border-dark" id="findADish">
+      <h4>Find a dish</h4>
+      <div class="row">
+        <div class="col-sm-9">
+          <input type="text" class="form-control my-2" id="keyWords" placeholder="Enter key words">
+          <!-- Här ska det in en controller eller nått -->
+        </div>
+        <div class="dropdown"> <!-- Ska det vara ett ID här någonstans? -->
+          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Choose Type
+            <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a href="#">Appetizer</a></li>
+                <li><a href="#">Main Course</a></li>
+                <li><a href="#">Dessert</a></li>
+                <li><a href="#">Side Dish</a></li>
+              </ul>
+              <!-- Här ska det in en massa controllers eller nått -->
+        </div>
+        <div style="margin-left:10px";><button type="submit" class="btn btn-primary">Search</button>
+          <!-- Här ska det in en controller eller nått -->
+        </div>
+      </div>
+      <div class="row border-top border-dark" id="availableDishes">
+        <div id="dishOptions" style="text-align:center; margin:10px;">
+      </div>
+      </div>
+  </div>
+  </div>
+</div>
+
+  <!-- jQuery, only for use by Bootstrap -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+	<!-- The application JavaScript code -->
+  <script src="js/app.js"></script>
+	<script src="js/model/dinnerModel.js"></script>
+  <script src="js/view/confirmedView.js"></script>
+  <script src="js/view/dishDescriptionView.js"></script>
+  <script src="js/view/FilterView.js"></script>
+  <script src="js/view/finalOrderView.js"></script>
+	<script src="js/view/mealsView.js"></script>
+  <script src="js/view/Sidebarview.js"></script>
+
+  </body>
+</html>
