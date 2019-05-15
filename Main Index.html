@@ -21,11 +21,9 @@
     </header>
     <div id="startView" class="text-center" style="margin-top:50px">
       <p> Welcome to the dinnerplanner. Here you can create a tasty meal for you and your friends. </p>
-      <!-- Här ska det in en controller eller nått -->
       <button type="submit" class="btn btn-primary" id="dinnerButton">Create New Dinner</button>
     </div>
 
-    <!--BEEG Yoshi-->
     <div class="container-fluid border border-dark" style="margin-top:0px">
       <div class="row">
 
@@ -37,7 +35,6 @@
       </div>
       <div class="col">
         <div type="text" class="form-control" placeholder="Select Guests">
-            <!-- Här ska det in en controller eller nått -->
           <p id="guestNum"></p>
         </div>
       </div>
@@ -57,13 +54,10 @@
     </div>
     <div class="row border bg-secondary" id="sidebarList">
       <div class="col">
-        <!-- Här ska det in en controller eller nått -->
         <p></p>
       </div>
       <div class="col">
-        <p class="text-right">
-          <!-- Här ska det in en controller eller nått -->
-        </p>
+        <p class="text-right"></p>
       </div>
     </div>
     <div class="row">
@@ -72,7 +66,6 @@
     </div>
     <div class="row">
       <div class="col-sm d-flex justify-content-end">
-        <!-- Här ska det in en controller eller nått -->
         <div id="totSum"></div>&nbspSEK
       </div>
     </div>
@@ -90,7 +83,6 @@
       <div class="row">
         <div class="form-group">
           <input type="text" class="form-control" id="keyWords" placeholder="Enter key words">
-          <!-- Här ska det in en controller eller nått -->
         <div class="dropdown">
               <select class="form-control" id="dropDownMenu">
                 <option>appetizer<option>
@@ -105,11 +97,9 @@
                 <option>sauce<option>
                 <option>drink<option>
               </select>
-              <!-- Här ska det in en massa controllers eller nått -->
         </div>
         </div>
         <div style="margin-left:10px";><button id="submitButton" type="submit" class="btn btn-primary">Search</button>
-          <!-- Här ska det in en controller eller nått -->
         </div>
       </div>
       <div class="row border-top border-dark" id="dishListView">
@@ -130,7 +120,6 @@
             <div class="row">
               <div class="col" id="ingredientHead">
                 <h4>Ingredients for <span id="guestNumIngr"></span> people </h4>
-                <!-- Här ska det in en controller eller nått -->
               </div>
             </div>
             <div class="row border border-dark">
@@ -141,7 +130,6 @@
             <div class="row border-top border-dark" style="margin-top:10px">
               <div class="col"><button class="btn btn-primary" id="addButton">Add to menu</button>Total cost:
                 <span id="ingredientsTotalPrice"></span>
-                <!-- Här ska det in en controller eller nått -->
               </div>
               <button class="btn btn-primary" id="goBackButton">Go Back
               </button>
@@ -183,12 +171,13 @@
       <!--Här ska det in en controller eller nått-->
     </div>
   </div>
+
   <div id="orderAndPrepView" class="row">
   <div class="container-fluid col-sm-6 border-right border-dark" id="orderDescriptions">
-    <p>Här ska det in en massa bilder och beskrivningar</p>
+    
   </div>
   <div class="container-fluid col-sm-6" id="preperationDescriptions">
-    <p>Här ska det in en massa förberedelsebeskrivningar</p>
+
   </div>
 </div>
 
@@ -214,6 +203,7 @@
   <script src="Controller/filterController.js"></script>
   <script src="Controller/dishListController.js"></script>
   <script src="Controller/dishDescriptionController.js"></script>
+  <script src="Controller/confirmedController.js"></script>
 
   </body>
 </html>

@@ -4,10 +4,7 @@ var AddMealButtons = function(container, model) {
   var dishList = [];
   for (var idx in menu) {
     var newCont = document.createElement("DIV");
-    newCont.setAttribute(
-      "style",
-      "display:inline-block; width:160px; height:225px;"
-    );
+    newCont.setAttribute("style", "display:inline-block; width:160px; height:225px;");
     var newButt = document.createElement("BUTTON");
     var newImg = document.createElement("img");
     newButt.className = "btn";

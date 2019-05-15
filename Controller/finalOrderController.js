@@ -1,3 +1,5 @@
 var FinalOrderView = function(view, model, app){
-  HALP
+  view.backToEdit.click(function() {
+    app.showSelectionScreen();
+  }
 }

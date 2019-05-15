@@ -39,10 +39,15 @@ var DinnerModel = function() {
   };
 
   this.addToSidebar = function() {
-    console.log("vadsomhelst");
-    this.customerMenu.push(this.dishPromise);
+    //this.customerMenu.push(this.dishPromise);
+    this.customerMenu.push(this.dishPromise)
     notifyObservers("added");
+    notifyObservers("Sauce");
   }
+
+  this.getCustomerMenu = function() {
+    return this.customerMenu;
+  };
 
   //Returns all the dishes on the menu.
   this.getFullMenu = function() {
@@ -58,16 +63,12 @@ var DinnerModel = function() {
     return sumting;
   };
 
-  //Returns all ingredients for all the dishes on the menu. BYT UT ID MOT NÅGOT ANNAT
+  //Returns all ingredients for all the dishes on the menu.
   this.getRecipeIngredients = function(id) {
     return fetch(
-      "http://sunset.nada.kth.se:8080/iprog/group/72/recipes/" +
-        id +
-        "/information",
-      {
-        headers: {
-          "X-Mashape-Key": "3d2a031b4cmsh5cd4e7b939ada54p19f679jsn9a775627d767"
-        }
+      "http://sunset.nada.kth.se:8080/iprog/group/72/recipes/" + id + "/information",
+      { headers:
+        { "X-Mashape-Key": "3d2a031b4cmsh5cd4e7b939ada54p19f679jsn9a775627d767" }
       }
     ).then(response => response.json());
   };
@@ -102,12 +103,14 @@ var DinnerModel = function() {
   //Adds the passed dish to the menu. If the dish of that type already exists on the menu
   //it is removed from the menu and the new one added.
   this.addDishToMenu = function(id) {
-    var newDish = this.getDish(id);
-    var oldDish = this.getSelectedDish(newDish.type);
+    var newDish = this.getDish(id)
+    /*var oldDish = this.getSelectedDish();
     if (oldDish.type === newDish.type) {
       removeDishFromMenu(oldDish.id);
-    }
+    }*/
     dishMenu.push(newDish);
+
+    notifyObservers("added");
     notifyObservers("Sauce");
   };
   //Removes dish from menu
@@ -117,14 +120,9 @@ var DinnerModel = function() {
   };
 
   this.getAllDishes = function(type, filter) {
-    return fetch(
-      "http://sunset.nada.kth.se:8080/iprog/group/72/recipes/search?query=" +
-        filter +
-        "&type=" +
-        type +
-        "&number=10",
-      {
-        headers: {
+    return fetch( "http://sunset.nada.kth.se:8080/iprog/group/72/recipes/search?query=" + filter + "&type=" + type + "&number=10",
+      { headers:
+        {
           "X-Mashape-Key": "3d2a031b4cmsh5cd4e7b939ada54p19f679jsn9a775627d767"
         }
       }

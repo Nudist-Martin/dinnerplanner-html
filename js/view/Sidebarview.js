@@ -1,10 +1,10 @@
 var SidebarView = function(container, model){
-
+  this.confirmOrder = container.find("#confirmOrder");
   this.plusButton = container.find("#buttonUp");
   this.minusButton = container.find("#buttonDown");
   var guests = container.find("#guestNum");
-  this.update = function(change){
-    if(change === "setGuestNum"){
+  this.update = function(changeDetails){
+    if(changeDetails === "setGuestNum"){
       guests.html(model.getGuestNum);
     }
   }
