@@ -1,0 +1,10 @@
+#dish_image {
+  height: 180px;
+  width: 180px;
+}
+
+#imgcont {
+  margin-right: 30px;
+  display: inline-block;
+  padding-left: 10px;
+}
