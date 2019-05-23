@@ -74,7 +74,13 @@ var DinnerModel = function() {
           "X-Mashape-Key": "3d2a031b4cmsh5cd4e7b939ada54p19f679jsn9a775627d767"
         }
       }
-    ).then(response => response.json());
+    )
+      .then(response => response.json())
+      .catch(err => {
+        alert(
+          "There seems to be something wrong with your connection, please check your network settings and try again"
+        );
+      });
   };
 
   //Returns the total price of the dish (all the ingredients multiplied by number of guests).
@@ -135,6 +141,11 @@ var DinnerModel = function() {
       }
     )
       .then(response => response.json())
-      .then(data => data.results);
+      .then(data => data.results)
+      .catch(err => {
+        alert(
+          "There seems to be something wrong with your connection, please check your network settings and try again"
+        );
+      });
   };
 };
