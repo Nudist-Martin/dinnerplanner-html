@@ -1,209 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Dinner planner</title>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="Stylesheet.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="Stylesheet.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-
   </head>
   <body>
-    <!--Startview-->
-    <header class="jumbotron text-center container-fluid" style="margin-bottom:0">
+    <!-- Welcomeview -->
+    <header
+      class="jumbotron text-center container-fluid"
+      style="margin-bottom:0"
+    >
       <h1>Dinner Planner</h1>
     </header>
-    <div id="startView" class="text-center" style="margin-top:50px">
-      <p> Welcome to the dinnerplanner. Here you can create a tasty meal for you and your friends. </p>
-      <button type="submit" class="btn btn-primary" id="dinnerButton">Create New Dinner</button>
+    <div id="welcomeView" class="text-center" style="margin-top:50px">
+      <p>
+        Welcome to the dinnerplanner. Here you can create a tasty meal for you
+        and your friends.
+      </p>
+      <button type="submit" class="btn btn-primary" id="dinnerButton">
+        Create New Dinner
+      </button>
     </div>
 
     <div class="container-fluid border border-dark" style="margin-top:0px">
       <div class="row">
-
-    <!--Sidebarview-->
-    <div class="col-sm-3 vh-100 bg-light border" id="sidebarView">
-      <h3 class="text-center">Your Dinner</h3>
-      <div class="col">
-        <p>Guests</p>
-      </div>
-      <div class="col">
-        <div type="text" class="form-control" placeholder="Select Guests">
-          <p id="guestNum"></p>
-        </div>
-      </div>
-      <div class="col">
-         <div class="btn-group-horizontal" id="ourButtons" style="margin-top:10px">
-           <button type="button" class="btn-deafult" id="buttonUp">+</button>
-           <button type="button" class="btn-deafult" id="buttonDown">-</button>
-         </div>
-      </div>
-    <div class="row border bg-secondary" style="margin-top:10px">
-      <div class="col">
-        <p>Dish name</p>
-      </div>
-      <div class="col">
-        <p class="text-right">Cost</p>
-      </div>
-    </div>
-    <div class="row border bg-secondary" id="sidebarList">
-      <div class="col">
-        <p></p>
-      </div>
-      <div class="col">
-        <p class="text-right"></p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm d-flex justify-content-end">
-        <div id="totSum"></div>&nbspSEK
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm d-flex justify-content-center">
-        <button type="submit" class="btn btn-primary" id="confirmOrder">Confirm Order</button>
-        <!-- Här ska det in en controller eller nått -->
-      </div>
-    </div>
-    </div>
-
-    <!--FilterView-->
-    <div class="col-sm-9 vh-100 border-left border-dark" id="filterView">
-      <h4>Find a dish</h4>
-      <div class="row">
-        <div class="form-group">
-          <input type="text" class="form-control" id="keyWords" placeholder="Enter key words">
-        <div class="dropdown">
-              <select class="form-control" id="dropDownMenu">
-                <option>appetizer<option>
-                <option>main+dish<option>
-                <option>dessert<option>
-                <option>side+dish<option>
-                <option>salad<option>
-                <option>bread<option>
-                <option>breakfast<option>
-                <option>soup<option>
-                <option>beverage<option>
-                <option>sauce<option>
-                <option>drink<option>
-              </select>
-        </div>
-        </div>
-        <div style="margin-left:10px";><button id="submitButton" type="submit" class="btn btn-primary">Search</button>
-        </div>
-      </div>
-      <div class="row border-top border-dark" id="dishListView">
-        <div class="loader" style=""></div>
-        <div class="col-sm-9" id="dishOptions" style="max-height:500px; overflow:scroll; text-align:center; margin:10px;">
-        </div>
-      </div>
-    </div>
-
-    <!--dishDescriptionView-->
-    <div class="col-sm-9 vh-100 border-left border-dark" id="dishDescriptionView">
-      <div class="row">
-        <div class="col-sm-6" id="dishDescription">
-        </div>
-
-        <div class="col-sm-6 border bg-warning" id="losIngredientos">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col" id="ingredientHead">
-                <h4>Ingredients for <span id="guestNumIngr"></span> people </h4>
-              </div>
+        <!-- Sidebarview -->
+        <div class="col-sm-3 vh-100 bg-light border" id="sidebarView">
+          <h3 class="text-center">Your Dinner</h3>
+          <div class="col"><p>Guests</p></div>
+          <div class="col">
+            <div type="text" class="form-control" placeholder="Select Guests">
+              <p id="guestNum"></p>
             </div>
-            <div class="row border border-dark">
-              <div class="col" id="dishIngredients">
-
-              </div>
-            </div>
-            <div class="row border-top border-dark" style="margin-top:10px">
-              <div class="col"><button class="btn btn-primary" id="addButton">Add to menu</button>Total cost:
-                <span id="ingredientsTotalPrice"></span>
-              </div>
-              <button class="btn btn-primary" id="goBackButton">Go Back
+          </div>
+          <div class="col">
+            <div
+              class="btn-group-horizontal"
+              id="ourButtons"
+              style="margin-top:10px"
+            >
+              <button type="button" class="btn-deafult" id="buttonUp">+</button>
+              <button type="button" class="btn-deafult" id="buttonDown">
+                -
               </button>
+            </div>
+          </div>
+          <div class="row border bg-secondary" style="margin-top:10px">
+            <div class="col"><p>Dish name</p></div>
+            <div class="col"><p class="text-right">Cost</p></div>
+          </div>
+          <div class="row border bg-secondary" id="sidebarList">
+            <div class="col"><p></p></div>
+            <div class="col"><p class="text-right"></p></div>
+          </div>
+          <div class="row"><div class="col-sm"></div></div>
+          <div class="row">
+            <div class="col-sm d-flex justify-content-end">
+              <div id="totSum"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm d-flex justify-content-center">
+              <button type="submit" class="btn btn-primary" id="confirmOrder">
+                Confirm Order
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- FilterView -->
+        <div class="col-sm-9 vh-100 border-left border-dark" id="filterView">
+          <h4>Find a dish</h4>
+          <div class="row">
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="keyWords"
+                placeholder="Enter key words"
+              />
+              <div class="dropdown">
+                <select class="form-control" id="dropDownMenu">
+                  <option>appetizer</option
+                  ><option> </option
+                  ><option>main+dish</option
+                  ><option> </option
+                  ><option>dessert</option
+                  ><option> </option
+                  ><option>side+dish</option
+                  ><option> </option
+                  ><option>salad</option
+                  ><option> </option
+                  ><option>bread</option
+                  ><option> </option
+                  ><option>breakfast</option
+                  ><option> </option
+                  ><option>soup</option
+                  ><option> </option
+                  ><option>beverage</option
+                  ><option> </option
+                  ><option>sauce</option
+                  ><option> </option
+                  ><option>drink</option
+                  ><option> </option
+                ></select>
+              </div>
+            </div>
+            <div style="margin-left:10px" ;>
+              <button id="submitButton" type="submit" class="btn btn-primary">
+                Search
+              </button>
+            </div>
+          </div>
+          <div class="row border-top border-dark" id="dishListView">
+            <div class="loader" style=""></div>
+            <div
+              class="col-sm-9"
+              id="dishOptions"
+              style="max-height:500px; overflow:scroll; text-align:center; margin:10px;"
+            ></div>
+          </div>
+        </div>
+
+        <!-- dishDetailsView -->
+        <div
+          class="col-sm-9 vh-100 border-left border-dark"
+          id="dishDetailsView"
+        >
+          <div class="row">
+            <div class="col-sm-6" id="dishDetails"></div>
+
+            <div class="col-sm-6 border bg-warning" id="losIngredientos">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col" id="ingredientHead">
+                    <h4>
+                      Ingredients for <span id="guestNumIngr"></span> people
+                    </h4>
+                  </div>
+                </div>
+                <div class="row border border-dark">
+                  <div class="col" id="dishIngredients"></div>
+                </div>
+                <div class="row border-top border-dark" style="margin-top:10px">
+                  <div class="col">
+                    <button class="btn btn-primary" id="addButton">
+                      Add to menu</button
+                    >Total cost: <span id="ingredientsTotalPrice"></span>
+                  </div>
+                  <button class="btn btn-primary" id="goBackButton">
+                    Go Back
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
 
-    <!--finalOrderView-->
-    <div class="row" id="finalOrderView">
-    <div class="col-sm-9 border-right border-bottom border-dark" id="finalDishes">
-
-    </div>
-    <div class="container-fluid col-sm-3 border-bottom border-dark" id="orderContainer">
-      <div class="row">
-        <div style="margin-left: 10px">Total Cost:</div>
+    <!-- OverView -->
+    <div class="row" id="overView">
+      <div
+        class="col-sm-9 border-right border-bottom border-dark"
+        id="finalDishes"
+      ></div>
+      <div
+        class="container-fluid col-sm-3 border-bottom border-dark"
+        id="orderContainer"
+      >
+        <div class="row"><div style="margin-left: 10px">Total Cost:</div></div>
+        <div class="row">
+          <div id="totalSum" style="margin-left: 10px"></div>
+          &nbspSEK
+        </div>
+        <div style="text-align: right">
+          <button type="submit" class="btn btn-primary" id="backToEdit">
+            Back to Edit
+          </button>
+        </div>
       </div>
-      <div class="row">
-        <div id="totSum" style="margin-left: 10px">
-        </div>&nbspSEK
+      <footer id="recipeFooter" class="container-fluid col-sm-12 text-center">
+        <button
+          id="printFullRecipe"
+          type="submit"
+          class="btn btn-primary btn-lg"
+          style="margin-top: 40px"
+        >
+          Print Full Recipe
+        </button>
+      </footer>
+    </div>
+
+    <!-- PrintOutView -->
+
+    <div
+      class="container-fluid border border-dark"
+      style="margin-top:0px; "
+      id="printOutView"
+    >
+      <h2 style="text-align: left" id="dinnerGuests">
+        My dinner: <span id="finDinGuests"> </span> people
+      </h2>
+      <div class="col-sm-12" style="display:inline-block;">
+        <div id="orderDescriptions" class="col-sm-6"></div>
+
+        <div class="col-sm-6" id="preperationDescriptions"></div>
       </div>
     </div>
-  </div>
-  <!--Här är en footer, det kanske är dåligt -->
-    <footer id="recipeFooter" class="container-fluid col-sm-12 text-center">
-      <button type="submit" class="btn btn-primary btn-lg" style="margin-top: 40px">Print Full Recipe</button>
-      <!--Här ska det in en controller eller nått-->
-    </footer>
-
-  <!--confirmedView-->
-  <div class="container-fluid col-sm-12 border border-dark" style="margin-top:0px" id="confirmedView">
-    <h2 style="text-align: left" id="dinnerGuests">My dinner: <span id="finDinGuests"> </span> people <h2>
-      <!--Här ska det in en controller eller nått-->
-    <div style="text-align: right">
-      <button type="submit" class="btn btn-primary" id="backToEdit">Back to Edit</button>
-      <!--Här ska det in en controller eller nått-->
-    </div>
-  </div>
-
-  <div id="orderAndPrepView" class="row">
-  <div class="container-fluid col-sm-6 border-right border-dark" id="orderDescriptions">
-    
-  </div>
-  <div class="container-fluid col-sm-6" id="preperationDescriptions">
-
-  </div>
-</div>
 
     <!-- jQuery, only for use by Bootstrap -->
     <script src="https://code.jquery.com/jquery.js"></script>
-    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+    <!--
+      Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc.
+    -->
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 
-	<!-- The application JavaScript code -->
-  <script src="js/app.js"></script>
-	<script src="js/model/dinnerModel.js"></script>
-  <script src="js/view/confirmedView.js"></script>
-  <script src="js/view/CustomerDinnerView.js"></script>
-  <script src="js/view/dishDescriptionView.js"></script>
-  <script src="js/view/filterView.js"></script>
-  <!--<script src="js/view/finalOrderView.js"></script> -->
-	<script src="js/view/dishListView.js"></script>
-  <script src="js/view/sidebarview.js"></script>
-  <script src="js/view/startView.js"></script>
+    <!-- The application JavaScript code -->
+    <script src="js/app.js"></script>
+    <script src="js/model/dinnerModel.js"></script>
 
-  <!-- Controllers -->
-  <script src="Controller/sidebarController.js"></script>
-  <script src="Controller/filterController.js"></script>
-  <script src="Controller/dishListController.js"></script>
-  <script src="Controller/dishDescriptionController.js"></script>
-  <script src="Controller/confirmedController.js"></script>
+    <!-- Views -->
+    <script src="js/view/PrintOutView.js"></script>
+    <script src="js/view/CustomerDinnerView.js"></script>
+    <script src="js/view/dishDetailsView.js"></script>
+    <script src="js/view/filterView.js"></script>
+    <script src="js/view/OverView.js"></script>
+    <script src="js/view/dishListView.js"></script>
+    <script src="js/view/sidebarview.js"></script>
+    <script src="js/view/WelcomeView.js"></script>
 
+    <!-- Controllers -->
+    <script src="Controller/WelcomeController.js"></script>
+    <script src="Controller/sidebarController.js"></script>
+    <script src="Controller/filterController.js"></script>
+    <script src="Controller/dishListController.js"></script>
+    <script src="Controller/dishDetailsController.js"></script>
+    <script src="Controller/ConfirmOrderController.js"></script>
+    <script src="Controller/DisplayPrintOutController.js"></script>
+    <script src="Controller/OverViewController.js"></script>
   </body>
 </html>

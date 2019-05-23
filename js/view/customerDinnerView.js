@@ -7,10 +7,10 @@ var CustomerDinnerView = function(container, model) {
       model.customerMenu.map(dishes => {
         dishes.then(dish => {
           var dishTitle = document.createElement("span");
-            dishTitle.setAttribute("class", "col-sm-9");
+          dishTitle.setAttribute("class", "col-sm-9");
           var dishPrice = document.createElement("span");
-            dishPrice.setAttribute("class", "col-sm-3");
-            dishPrice.setAttribute("style", "float-right");
+          dishPrice.setAttribute("class", "col-sm-3");
+          dishPrice.setAttribute("style", "float-right");
           dishTitle.innerHTML = dish.title;
           dishPrice.innerHTML = dish.pricePerServing;
           dishList.appendChild(dishTitle);
@@ -21,5 +21,4 @@ var CustomerDinnerView = function(container, model) {
     }
   };
   model.addObserver(this.update);
-
-}
+};

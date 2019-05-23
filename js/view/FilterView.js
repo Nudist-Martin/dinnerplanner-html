@@ -1,3 +1,3 @@
-var FilterView = function(container, model){
+var FilterView = function(container, model) {
   this.submitButton = container.find("#submitButton");
-}
+};

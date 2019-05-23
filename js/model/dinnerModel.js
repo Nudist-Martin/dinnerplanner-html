@@ -33,17 +33,17 @@ var DinnerModel = function() {
     this.dishPromise = this.getRecipeIngredients(id);
     notifyObservers("change");
   };
+
   //Returns the dish that is on the menu for selected type
   this.getSelectedDish = function() {
     return this.dishPromise;
   };
 
   this.addToSidebar = function() {
-    //this.customerMenu.push(this.dishPromise);
-    this.customerMenu.push(this.dishPromise)
+    this.customerMenu.push(this.dishPromise);
     notifyObservers("added");
-    notifyObservers("Sauce");
-  }
+    notifyObservers("addedToSidebar");
+  };
 
   this.getCustomerMenu = function() {
     return this.customerMenu;
@@ -66,9 +66,13 @@ var DinnerModel = function() {
   //Returns all ingredients for all the dishes on the menu.
   this.getRecipeIngredients = function(id) {
     return fetch(
-      "http://sunset.nada.kth.se:8080/iprog/group/72/recipes/" + id + "/information",
-      { headers:
-        { "X-Mashape-Key": "3d2a031b4cmsh5cd4e7b939ada54p19f679jsn9a775627d767" }
+      "http://sunset.nada.kth.se:8080/iprog/group/72/recipes/" +
+        id +
+        "/information",
+      {
+        headers: {
+          "X-Mashape-Key": "3d2a031b4cmsh5cd4e7b939ada54p19f679jsn9a775627d767"
+        }
       }
     ).then(response => response.json());
   };
@@ -86,6 +90,7 @@ var DinnerModel = function() {
       return totalDishPrice;
     }
   };
+
   //Returns the total price of the menu (all the ingredients multiplied by number of guests).
   this.getTotalMenuPrice = function() {
     var totalPrice = 0;
@@ -100,14 +105,11 @@ var DinnerModel = function() {
     }
     return totalPrice;
   };
+
   //Adds the passed dish to the menu. If the dish of that type already exists on the menu
   //it is removed from the menu and the new one added.
   this.addDishToMenu = function(id) {
-    var newDish = this.getDish(id)
-    /*var oldDish = this.getSelectedDish();
-    if (oldDish.type === newDish.type) {
-      removeDishFromMenu(oldDish.id);
-    }*/
+    var newDish = this.getDish(id);
     dishMenu.push(newDish);
 
     notifyObservers("added");
@@ -120,9 +122,14 @@ var DinnerModel = function() {
   };
 
   this.getAllDishes = function(type, filter) {
-    return fetch( "http://sunset.nada.kth.se:8080/iprog/group/72/recipes/search?query=" + filter + "&type=" + type + "&number=10",
-      { headers:
-        {
+    return fetch(
+      "http://sunset.nada.kth.se:8080/iprog/group/72/recipes/search?query=" +
+        filter +
+        "&type=" +
+        type +
+        "&number=10",
+      {
+        headers: {
           "X-Mashape-Key": "3d2a031b4cmsh5cd4e7b939ada54p19f679jsn9a775627d767"
         }
       }
